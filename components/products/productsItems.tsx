@@ -22,6 +22,7 @@ export default function ProductsItems({ product }: { product: Product }) {
           <h2 className="card-title font-normal">{product.name}</h2>
         </Link>
         <p className="mb-2"> {product.brand}</p>
+
         <div className="card-actions flex items-center justify-between">
           <span className="text-2xl">${product.price}</span>
         </div>

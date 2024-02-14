@@ -5,6 +5,7 @@ const nextConfig = {
       "media.centrepointstores.com",
       "example.com",
       "anotherdomain.com",
+      "fabrilife.com",
     ], // Add your hostnames here
   },
 };

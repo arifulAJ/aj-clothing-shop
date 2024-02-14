@@ -19,13 +19,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="min-h-screen flex flex-col">
-          <Header/>
-        {children}
-        <div className="p-12 ">
-          this is fotter section later i will impliment
+          <Header />
+          {children}
+          <div className="p-12 ">
+            this is fotter section later i will impliment
+          </div>
         </div>
-        
-        </div></body>
+      </body>
     </html>
   );
 }
