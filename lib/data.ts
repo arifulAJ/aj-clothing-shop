@@ -1,26 +1,42 @@
-import bcrypt from "bcrypt";
-// Define the password to hash
-const passwordToHash = "123456";
+// import bcrypt from "bcrypt";
+// // Define the password to hash
+// const passwordToHash = "123456";
 
-// Generate the hashed password synchronously with bcrypt
-const hashedPassword = bcrypt.hashSync(passwordToHash, 10); // 10 is the number of rounds for salt generation
+// // Generate the hashed password synchronously with bcrypt
+// const hashedPassword = bcrypt.hashSync(passwordToHash, 10); // 10 is the number of rounds for salt generation
+
+// const data = {
+//   users: [
+//     {
+//       name: "arif",
+//       email: "arif@example.com",
+//       password: hashedPassword, // Use the hashed password here
+//       isAdmin: true,
+//     },
+//     {
+//       name: "jone",
+//       email: "jon@example.com",
+//       password: hashedPassword, // Use the hashed password here
+//       isAdmin: false,
+//     },
+//   ],
+import bcrypt from "bcryptjs";
 
 const data = {
   users: [
     {
-      name: "arif",
-      email: "arif@example.com",
-      password: hashedPassword, // Use the hashed password here
+      name: "John",
+      email: "admin@example.com",
+      password: bcrypt.hashSync("123456"),
       isAdmin: true,
     },
     {
-      name: "jone",
-      email: "jon@example.com",
-      password: hashedPassword, // Use the hashed password here
+      name: "Jane",
+      email: "user@example.com",
+      password: bcrypt.hashSync("123456"),
       isAdmin: false,
     },
   ],
-
   products: [
     {
       name: "free shirt",

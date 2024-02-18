@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import useCartService from "@/lib/hooks/useCartStore";
 import Link from "next/link";
 
+import SignOutButton from "../from/signOutButton";
+
 const Menu = () => {
   const { items } = useCartService();
   const [mounted, setMounted] = useState(false);
@@ -28,6 +30,9 @@ const Menu = () => {
             {" "}
             Sign in
           </Link>
+        </li>
+        <li>
+          <SignOutButton />
         </li>
       </ul>
     </div>

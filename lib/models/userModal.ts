@@ -1,18 +1,19 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const UserSchema = new mongoose.Schema(
   {
     name: {
-      type: String,
-      required: true,
+      type: Schema.Types.String,
+      required: [true, "Please provide your name"],
     },
     email: {
-      type: String,
-      required: true,
+      type: Schema.Types.String,
+      required: [true, "Please provide your email address"],
+      unique: true,
     },
     password: {
-      type: String,
-      required: true,
+      type: Schema.Types.String,
+      required: [true, "Please provide a password"],
     },
     isAdmin: { type: Boolean, required: true, default: false },
   },
@@ -21,5 +22,5 @@ const UserSchema = new mongoose.Schema(
   }
 );
 
-const UserModel = mongoose.models.User || mongoose.model("User", UserSchema);
+const UserModel = mongoose.models?.User || mongoose.model("User", UserSchema);
 export default UserModel;
