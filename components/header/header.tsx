@@ -17,7 +17,7 @@ const Header = async () => {
         <Link href="/" className="btn btn-ghost text-lg">
           AJ Cloth Shop
         </Link>
-        <p>{JSON.stringify(session)}</p>
+        <p>{JSON.stringify(session?.user?.email)}</p>
         <Menu />
       </nav>
     </header>

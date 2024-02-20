@@ -8,6 +8,7 @@ export default function SignUpUI() {
   const router = useRouter();
   const [inputData, setInputData] = useState({
     name: "",
+    last: "",
     password: "",
     email: "",
     password_confirmation: "",
@@ -23,6 +24,7 @@ export default function SignUpUI() {
       .then((res) => {
         setLoading(false);
         const respons = res.data;
+        console.log(respons, "regist");
         if (respons?.status == 200) {
           router.push(`/signin?message=${respons.message}`);
         } else if (respons?.status == 400) {
@@ -79,6 +81,28 @@ export default function SignUpUI() {
                     ></input>
                     <span className="text-red-500 font-bold">
                       {error?.name}
+                    </span>
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor=""
+                    className="text-base font-medium text-gray-900"
+                  >
+                    {" "}
+                    last{" "}
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      type="text"
+                      placeholder="Full Name"
+                      onChange={(e) =>
+                        setInputData({ ...inputData, last: e.target.value })
+                      }
+                    ></input>
+                    <span className="text-red-500 font-bold">
+                      {error?.last}
                     </span>
                   </div>
                 </div>

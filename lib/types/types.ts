@@ -1,5 +1,6 @@
 type registerErrorType = {
   name?: String;
+  last?: String;
   email?: String;
   password?: String;
 };

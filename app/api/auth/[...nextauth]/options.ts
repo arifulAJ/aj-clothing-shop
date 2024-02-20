@@ -14,7 +14,11 @@ export const authOptions: AuthOptions = {
     CredentialsProvider({
       name: "next auth",
       credentials: {
-        email: { label: "email", type: "email", placeholder: "your name" },
+        email: {
+          label: "email",
+          type: "email",
+          placeholder: "your email name",
+        },
         password: {
           label: "Password",
           type: "password",
@@ -27,6 +31,7 @@ export const authOptions: AuthOptions = {
 
         if (user) {
           console.log(user, "user model");
+
           // Any object returned will be saved in `user` property of the JWT
           return user;
         } else {
@@ -38,4 +43,35 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
+  callbacks: {
+    async jwt({ user, trigger, session, token }: any) {
+      console.log(user, trigger, session, token, "all the very thisng ");
+      if (user) {
+        token.user = {
+          role: user.role,
+          _id: user._id,
+          email: user.email,
+          name: user.name,
+          isAdmin: user.isAdmin,
+        };
+      }
+      if (trigger === "update" && session) {
+        token.user = {
+          ...token.user,
+          email: session.user.email,
+          name: session.user.name,
+        };
+      }
+      console.log(token, "this is another token");
+      return token;
+    },
+    session: async ({ session, token }: any) => {
+      if (token) {
+        session.user = token.user;
+        console.log(token, "this option up adn down");
+      }
+
+      return session;
+    },
+  },
 };

@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { signIn } from "next-auth/react";
-import { redirect, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 export default function SignInUi() {
