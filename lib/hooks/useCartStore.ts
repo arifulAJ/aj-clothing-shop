@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { round2 } from "../utils";
-import { OrderItem } from "../models/orderModel";
+import { OrderItem, ShippingAddress } from "../models/orderModel";
 import { persist } from "zustand/middleware";
 
 type Cart = {
@@ -9,6 +9,8 @@ type Cart = {
   taxPrice: number;
   shippingPrice: number;
   totalPrice: number;
+  paymentMethod: string;
+  shippingAddress: ShippingAddress;
 };
 
 const initialState: Cart = {
@@ -17,7 +19,17 @@ const initialState: Cart = {
   taxPrice: 0,
   shippingPrice: 0,
   totalPrice: 0,
+  paymentMethod: "PayPal",
+  shippingAddress: {
+    fullName: "",
+    address: "",
+    city: "",
+    postalCode: "",
+    country: "",
+  },
 };
+
+//cart Store
 export const cartStore = create<Cart>()(
   persist(() => initialState, {
     name: "cartStor",
@@ -25,8 +37,15 @@ export const cartStore = create<Cart>()(
 );
 
 export default function useCartService() {
-  const { items, itemsPrice, totalPrice, shippingPrice, taxPrice } =
-    cartStore();
+  const {
+    items,
+    itemsPrice,
+    totalPrice,
+    shippingPrice,
+    taxPrice,
+    paymentMethod,
+    shippingAddress,
+  } = cartStore();
 
   return {
     items,
@@ -34,6 +53,8 @@ export default function useCartService() {
     taxPrice,
     shippingPrice,
     totalPrice,
+    paymentMethod,
+    shippingAddress,
     increase: (item: OrderItem) => {
       const exist = items.find((x) => x.slug === item.slug);
       const updateCardItems = exist
@@ -69,6 +90,12 @@ export default function useCartService() {
         taxPrice,
         totalPrice,
       });
+    },
+    saveShippingAddress: (shippingAddress: ShippingAddress) => {
+      cartStore.setState({ shippingAddress });
+    },
+    savePaymentMethod: (paymentMethod: string) => {
+      cartStore.setState({ paymentMethod });
     },
   };
 }

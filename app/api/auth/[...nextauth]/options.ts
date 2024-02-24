@@ -30,8 +30,6 @@ export const authOptions: AuthOptions = {
         const user = await UserModel.findOne({ email: credentials?.email });
 
         if (user) {
-          console.log(user, "user model");
-
           // Any object returned will be saved in `user` property of the JWT
           return user;
         } else {
@@ -45,7 +43,6 @@ export const authOptions: AuthOptions = {
   ],
   callbacks: {
     async jwt({ user, trigger, session, token }: any) {
-      console.log(user, trigger, session, token, "all the very thisng ");
       if (user) {
         token.user = {
           role: user.role,
@@ -62,13 +59,12 @@ export const authOptions: AuthOptions = {
           name: session.user.name,
         };
       }
-      console.log(token, "this is another token");
+
       return token;
     },
     session: async ({ session, token }: any) => {
       if (token) {
         session.user = token.user;
-        console.log(token, "this option up adn down");
       }
 
       return session;
