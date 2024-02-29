@@ -2,6 +2,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { AuthOptions } from "next-auth";
 import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/lib/models/userModal";
+import NextAuth from "next-auth/next";
 
 export const authOptions: AuthOptions = {
   session: {
@@ -71,3 +72,9 @@ export const authOptions: AuthOptions = {
     },
   },
 };
+// export const {
+//   handlers: { GET, POST },
+//   auth,
+//   signIn,
+//   signOut,
+// } = NextAuth(authOptions);

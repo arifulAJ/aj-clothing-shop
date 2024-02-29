@@ -9,22 +9,24 @@ const Form = () => {
   const { savePaymentMethod, paymentMethod, shippingAddress } =
     useCartService();
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
+
+  useEffect(() => {
+    if (!shippingAddress.address) {
+      router.push("/shipping");
+    }
+    setSelectedPaymentMethod(paymentMethod || "PayPal");
+  }, [paymentMethod, router, shippingAddress]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     savePaymentMethod(selectedPaymentMethod);
     router.push("/place-order");
-
-    useEffect(() => {
-      if (!shippingAddress.address) {
-        return router.push("/shipping");
-      }
-      setSelectedPaymentMethod(paymentMethod || "PayPal");
-    }, [paymentMethod, router, shippingAddress]);
   };
+
   return (
     <div>
       <CheckoutSteps current={2} />
-      <div className="max-w-sm mx-auto bg-red-500 my-4">
+      <div className="max-w-sm mx-auto bg-white my-4">
         <div className="card-body">
           <h1 className="card-title">Payment Method</h1>
           <form onSubmit={handleSubmit}>

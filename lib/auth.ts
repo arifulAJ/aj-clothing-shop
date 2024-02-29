@@ -152,9 +152,10 @@
 //   },
 // };
 
-// export const {
-//   handlers: { GET, POST },
-//   auth,
-//   signIn,
-//   signOut,
-// } = NextAuth(config);
+// const NextAuthInstance = NextAuth(config);
+
+// // export const GET = NextAuthInstance.handlers.GET;
+// // export const POST = NextAuthInstance.handlers.POST;
+// export const auth = NextAuthInstance.auth;
+// export const signIn = NextAuthInstance.signIn;
+// export const signOut = NextAuthInstance.signOut;

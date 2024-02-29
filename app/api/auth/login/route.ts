@@ -6,13 +6,13 @@ import { logInSchema } from "@/lib/validator/authSchema";
 import vine, { errors } from "@vinejs/vine";
 import { NextRequest, NextResponse } from "next/server";
 
-dbConnect();
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const validator = vine.compile(logInSchema);
     validator.errorReporter = () => new ErrorReporter();
     const output = await validator.validate(body);
+    await dbConnect();
     const user = await UserModel.findOne({ email: output.email });
     if (user) {
       const chackePassword = bcrypt.compareSync(output.password, user.password);
