@@ -1,4 +1,5 @@
 "use client";
+import { Order, OrderItem } from "@/lib/models/orderModel";
 import useAxios from "@/utils/axiose/useAxiouse";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { useSession } from "next-auth/react";
@@ -33,7 +34,7 @@ export default function OrderDetails({
       .then((response) => response.json())
       .then((orderData) => console.log(orderData, "this is might be doo"));
   }
-  const { data, error } = useAxios(`/api/orders/${orderId}`);
+  const { data, error } = useAxios<Order>(`/api/orders/${orderId}`);
 
   if (error) return error.message;
   if (!data) return <div>Loading...</div>;
@@ -45,7 +46,7 @@ export default function OrderDetails({
     taxPrice,
     totalPrice,
     isDelivered,
-    delivereAt,
+    deliveredAt,
     isPaid,
     paidAt,
   } = data;
@@ -63,7 +64,7 @@ export default function OrderDetails({
                 {shippingAddress.postalCode}, {shippingAddress.country}{" "}
               </p>
               {isDelivered ? (
-                <div className="text-success"> Delivered at {delivereAt}</div>
+                <div className="text-success"> Delivered at {deliveredAt}</div>
               ) : (
                 <div className="text-error">Not Delivered</div>
               )}
