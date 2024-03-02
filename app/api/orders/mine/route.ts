@@ -16,9 +16,9 @@ export async function GET(req: any) {
   }
   const user = session?.user as { _id: string | { ObjectId: any } };
   const userId = user._id.toString(); // Convert _id to string
-  console.log(userId, "id of user");
+
   await dbConnect();
   const orders = await OrderModel.find({ user: userId });
-  console.log(orders, "this form get route");
+
   return Response.json(orders);
 }
