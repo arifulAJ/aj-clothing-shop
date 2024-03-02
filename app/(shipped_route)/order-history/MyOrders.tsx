@@ -10,8 +10,6 @@ export default function MyOrders() {
   const router = useRouter();
   const { data: orders, error } = useAxios(`/api/orders/mine`);
 
- 
-
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
@@ -20,8 +18,12 @@ export default function MyOrders() {
   if (!mounted) return <></>;
 
   if (error) return "An error has occurred.";
-  if (!orders) return "Loading...";
-
+  // if (!orders) return "Loading...";
+  // Type assertion to ensure orders is always an array
+  if (!Array.isArray(orders)) {
+    // Handle the case where orders is not an array (e.g., loading state)
+    return <div>Loading...</div>;
+  }
   return (
     <div className="overflow-x-auto">
       <table className="table">
