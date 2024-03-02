@@ -20,12 +20,12 @@
 // Import OrderDetails component
 import OrderDetails from "./OrderDetails";
 
-// Define the generateMetadata function
-export function generateMetadata({ params }: { params: { id: string } }) {
-  return {
-    title: `Order ${params.id}`,
-  };
-}
+// // Define the generateMetadata function
+// export function generateMetadata({ params }: { params: { id: string } }) {
+//   return {
+//     title: `Order ${params.id}`,
+//   };
+// }
 
 // Define the OrderDetailsPage component
 export default function OrderDetailsPage({
