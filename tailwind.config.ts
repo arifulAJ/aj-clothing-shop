@@ -13,6 +13,21 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      backgroundColor: {
+        // Add your custom background colors here
+        "custom-bg-light": "#FFF6F0",
+        "custom-bg-white": "#FFFFFF",
+        "custom-bg-button": "#FF6600",
+        "custom-bg-nav": "#0071DC",
+        // You can add as many custom colors as you need
+      },
+      textColor: {
+        // Add your custom typography colors here
+        "custom-text": "#000100",
+        "custom-btn-text": "#ffffff",
+
+        // You can add as many custom colors as you need
+      },
     },
   },
   plugins: [require("daisyui")],

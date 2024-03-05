@@ -8,7 +8,7 @@ export default function SignUpUI() {
   const router = useRouter();
   const [inputData, setInputData] = useState({
     name: "",
-    last: "",
+
     password: "",
     email: "",
     password_confirmation: "",
@@ -84,7 +84,7 @@ export default function SignUpUI() {
                     </span>
                   </div>
                 </div>
-                <div>
+                {/* <div>
                   <label
                     htmlFor=""
                     className="text-base font-medium text-gray-900"
@@ -105,7 +105,7 @@ export default function SignUpUI() {
                       {error?.last}
                     </span>
                   </div>
-                </div>
+                </div> */}
                 <div>
                   <label
                     htmlFor=""

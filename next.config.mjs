@@ -6,6 +6,7 @@ const nextConfig = {
       "example.com",
       "anotherdomain.com",
       "fabrilife.com",
+      "res.cloudinary.com",
     ], // Add your hostnames here
   },
 };

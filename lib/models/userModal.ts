@@ -6,11 +6,7 @@ const userSchema = new mongoose.Schema(
       type: Schema.Types.String,
       required: [true, "Please provide your name"],
     },
-    last: {
-      type: Schema.Types.String,
-      required: [true, "Please provide your name"],
-      default: "amin",
-    },
+
     email: {
       type: Schema.Types.String,
       required: [true, "Please provide your email address"],

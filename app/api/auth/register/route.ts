@@ -6,14 +6,13 @@ import vine, { errors } from "@vinejs/vine";
 import { NextRequest, NextResponse } from "next/server";
 import UserModel from "@/lib/models/userModal";
 
-dbConnect();
-
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const validator = vine.compile(registerSchema);
     validator.errorReporter = () => new ErrorReporter();
     const output = await validator.validate(body);
+    await dbConnect();
     //  chacke is email exist
     const user = await UserModel.findOne({ email: output.email });
     if (user) {
