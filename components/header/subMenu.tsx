@@ -8,7 +8,7 @@ const SubMenu = () => {
         <p>location</p>
         <p>store of the asse</p>
       </div>
-      <div className=" md:flex flex-row  text-white  hidden">
+      <div className=" sm:flex flex-row  text-white  hidden">
         <Link href="/">
           <p className="mr-4">Home</p>
         </Link>

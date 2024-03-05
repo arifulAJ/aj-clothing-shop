@@ -1,273 +1,6 @@
 "use client";
-// import { useState, useEffect } from "react";
-// import useCartService from "@/lib/hooks/useCartStore";
-// import Link from "next/link";
 
-// import SignOutButton from "../from/signOutButton";
-// import { useSession } from "next-auth/react";
-
-// const Menu = () => {
-//   const { items } = useCartService();
-//   const [mounted, setMounted] = useState(false);
-//   const { data: session } = useSession();
-//   const handleClick = () => {
-//     (document.activeElement as HTMLElement).blur();
-//   };
-//   useEffect(() => {
-//     setMounted(true);
-//   }, []);
-//   return (
-//     <div>
-//       <ul className="flex items-stretch">
-//         <li>
-//           <Link className="btn btn-ghost rounded-btn" href={"/cart"}>
-//             {" "}
-//             Cart
-//             {mounted && items.length != 0 && (
-//               <div className="badge badge-secondary">
-//                 {items.reduce((a, c) => a + c.qty, 0)}
-//               </div>
-//             )}
-//           </Link>
-//         </li>
-
-//         {session && session.user ? (
-//           <>
-//             <li>
-//               <div className="dropdown dropdown-bottom dropdown-end">
-//                 <label
-//                   tabIndex={0}
-//                   className="btn bg-custom-button  rounded-btn"
-//                 >
-//                   {session.user.name}
-//                   <svg
-//                     xmlns="http://www.w3.org/2000/svg"
-//                     fill="none"
-//                     viewBox="0 0 24 24"
-//                     strokeWidth={1.5}
-//                     stroke="currentColor"
-//                     className="w-6 h-6"
-//                   >
-//                     <path
-//                       strokeLinecap="round"
-//                       strokeLinejoin="round"
-//                       d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-//                     />
-//                   </svg>
-//                 </label>
-//                 <ul
-//                   tabIndex={0}
-//                   className="menu dropdown-content z-[1] p-2 shadow rounded-box w-52 "
-//                 >
-//                   {/* {session.user.isAdmin && (
-//                       <li onClick={handleClick}>
-//                         <Link href="/admin/dashboard">Admin Dashboard</Link>
-//                       </li>
-//                     )} */}
-
-//                   <li onClick={handleClick}>
-//                     <Link href="/order-history">Order history </Link>
-//                   </li>
-//                   <li onClick={handleClick}>
-//                     <Link href="/profile">Profile</Link>
-//                   </li>
-
-//                   <SignOutButton />
-//                 </ul>
-//               </div>
-//             </li>
-//           </>
-//         ) : (
-//           <>
-//             {" "}
-//             <li>
-//               <Link
-//                 className="  text-custom-btn-text border-none rounded-btn"
-//                 href={"/signin"}
-//               >
-//                 {" "}
-//                 Sign in
-//               </Link>
-//             </li>{" "}
-//           </>
-//         )}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default Menu;
-// import { useState, useEffect } from "react";
-// import useCartService from "@/lib/hooks/useCartStore";
-// import Link from "next/link";
-
-// import SignOutButton from "../from/signOutButton";
-// import { useSession } from "next-auth/react";
-// import Image from "next/image";
-
-// const Menu = () => {
-//   const { items } = useCartService();
-//   const [mounted, setMounted] = useState(false);
-//   const [menuOpen, setMenuOpen] = useState(false); // State to track menu open/close
-//   const { data: session } = useSession();
-//   const handleClick = () => {
-//     (document.activeElement as HTMLElement).blur();
-//   };
-//   useEffect(() => {
-//     setMounted(true);
-//   }, []);
-
-//   // Function to toggle menu open/close
-//   const toggleMenu = () => {
-//     setMenuOpen(!menuOpen);
-//   };
-
-//   return (
-//     <div className=" navbar bg-custom-bg-nav flex items-center justify-between">
-//       <div className="flex items-center">
-//         <div className="mr-4">
-//           {" "}
-//           <Link href="/">
-//             <Image
-//               src={
-//                 "https://res.cloudinary.com/arifulislam/image/upload/v1705572808/LOGO_AJ_pfv0sf.png"
-//               }
-//               height={80}
-//               width={80}
-//               alt="logo"
-//             />
-//           </Link>
-//         </div>
-//       </div>
-//       <div className="flex items-center">
-//         <div className="">
-//           {/* Search bar */}
-//           <input
-//             type="text"
-//             placeholder="Search your favorite itmes"
-//             className="px-3 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
-//           />
-//           <button className="">
-//             {/* Search icon */}
-//             {/* Include your search icon SVG here */}
-//             <svg
-//               xmlns="http://www.w3.org/2000/svg"
-//               className="w-6 h-6"
-//               fill="none"
-//               viewBox="0 0 24 24"
-//               stroke="currentColor"
-//             >
-//               <path
-//                 strokeLinecap="round"
-//                 strokeLinejoin="round"
-//                 strokeWidth="2"
-//                 d="M19 19l-6-6M9 5a6 6 0 100 12 6 6 0 000-12z"
-//               />
-//             </svg>
-//           </button>
-//         </div>
-//       </div>
-
-//       {/* Responsive Menu */}
-//       <div className="sm:hidden">
-//         {/* Burger icon to toggle menu */}
-//         <button
-//           onClick={toggleMenu}
-//           className="block text-gray-800 hover:text-gray-900 focus:text-gray-900 focus:outline-none"
-//         >
-//           <svg
-//             className="w-6 h-6"
-//             fill="none"
-//             viewBox="0 0 24 24"
-//             stroke="currentColor"
-//           >
-//             <path
-//               strokeLinecap="round"
-//               strokeLinejoin="round"
-//               strokeWidth="2"
-//               d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-//             />
-//           </svg>
-//         </button>
-//       </div>
-
-//       {/* Menu Items */}
-//       <ul
-//         className={`flex items-center space-x-4 sm:flex sm:space-x-6 ${
-//           menuOpen ? "block" : "hidden sm:block"
-//         }`}
-//       >
-//         <li>
-//           <Link className="btn btn-ghost rounded-btn" href={"/cart"}>
-//             Cart
-//             {mounted && items.length != 0 && (
-//               <div className="badge badge-secondary">
-//                 {items.reduce((a, c) => a + c.qty, 0)}
-//               </div>
-//             )}
-//           </Link>
-//         </li>
-
-//         {session && session.user ? (
-//           <>
-//             <li>
-//               <div className="dropdown dropdown-bottom dropdown-end">
-//                 <label
-//                   tabIndex={0}
-//                   className="btn bg-custom-button  rounded-btn"
-//                 >
-//                   {session.user.name}
-//                   <svg
-//                     xmlns="http://www.w3.org/2000/svg"
-//                     fill="none"
-//                     viewBox="0 0 24 24"
-//                     strokeWidth={1.5}
-//                     stroke="currentColor"
-//                     className="w-6 h-6"
-//                   >
-//                     <path
-//                       strokeLinecap="round"
-//                       strokeLinejoin="round"
-//                       d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-//                     />
-//                   </svg>
-//                 </label>
-//                 <ul
-//                   tabIndex={0}
-//                   className="menu dropdown-content z-[1] p-2 shadow rounded-box w-52 "
-//                 >
-//                   <li onClick={handleClick}>
-//                     <Link href="/order-history">Order history </Link>
-//                   </li>
-//                   <li onClick={handleClick}>
-//                     <Link href="/profile">Profile</Link>
-//                   </li>
-//                   <SignOutButton />
-//                 </ul>
-//               </div>
-//             </li>
-//           </>
-//         ) : (
-//           <>
-//             {" "}
-//             <li>
-//               <Link
-//                 className="  text-custom-btn-text border-none rounded-btn"
-//                 href={"/signin"}
-//               >
-//                 {" "}
-//                 Sign in
-//               </Link>
-//             </li>{" "}
-//           </>
-//         )}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default Menu;
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import useCartService from "@/lib/hooks/useCartStore";
 import Link from "next/link";
 
@@ -279,6 +12,7 @@ const Menu = () => {
   const { items } = useCartService();
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State to track menu open/close
+  const menuRef = useRef<HTMLDivElement>(null);
   const { data: session } = useSession();
   const handleClick = () => {
     (document.activeElement as HTMLElement).blur();
@@ -290,6 +24,22 @@ const Menu = () => {
   // Function to toggle menu open/close
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  useEffect(() => {
+    setMounted(true);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+  const closeMenu = () => {
+    setMenuOpen(false);
   };
 
   return (
@@ -339,34 +89,9 @@ const Menu = () => {
       </div>
 
       {/* Responsive Menu */}
-      <div className="sm:hidden">
-        {/* Burger icon to toggle menu */}
-        <button
-          onClick={toggleMenu}
-          className="block text-gray-800 hover:text-gray-900 focus:text-gray-900 focus:outline-none"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-            />
-          </svg>
-        </button>
-      </div>
 
       {/* Menu Items */}
-      <ul
-        className={`flex items-center space-x-4 sm:flex sm:space-x-6 ${
-          menuOpen ? "block" : "hidden sm:block"
-        }`}
-      >
+      <ul>
         <li>
           <Link className="btn btn-ghost rounded-btn " href={"/cart"}>
             <div className="flex flex-col">
@@ -397,10 +122,70 @@ const Menu = () => {
             </div>
           </Link>
         </li>
+        {/* Menu drawer */}
+        <div
+          ref={menuRef}
+          className={`fixed top-0 right-0 bottom-0 bg-custom-bg-nav w-64 z-50 transition-transform duration-300 ease-in-out transform ${
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <button
+            onClick={toggleMenu}
+            className=" justify-end font-bold text-white hover:text-orange-500 focus:text-orange-400 focus:outline-none"
+          >
+            <svg
+              className="w-8 h-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d={menuOpen ? "M6 18L18 6M6 6l12 12" : ""}
+              />
+            </svg>
+          </button>
+          <ul className="flex flex-col gap-4 p-4">
+            <li className="text-white" onClick={closeMenu}>
+              {session?.user ? (
+                <p>Hi, {session?.user?.name}</p>
+              ) : (
+                <div className="mr-auto flex flex-row">
+                  <Link href="/">
+                    <Image
+                      src={
+                        "https://res.cloudinary.com/arifulislam/image/upload/v1705572808/LOGO_AJ_pfv0sf.png"
+                      }
+                      height={50}
+                      width={50}
+                      alt="logo"
+                    />
+                  </Link>
+                  <Link className="btn btn-secondary" href={"/signin"}>
+                    Signin or signup
+                  </Link>
+                </div>
+              )}
+            </li>
+            <li>
+              <Link href="/" onClick={closeMenu}>
+                <p className="text-white">Home</p>
+              </Link>
+            </li>
+            <li>
+              <Link href="/cart" onClick={closeMenu}>
+                <p className="text-white">About</p>
+              </Link>
+            </li>
+            {/* Add more navigation links here */}
+          </ul>
+        </div>
 
         {session && session.user ? (
           <>
-            <li>
+            <li className="sm:block hidden">
               <div className="dropdown dropdown-bottom dropdown-end">
                 <label
                   tabIndex={0}
@@ -429,7 +214,7 @@ const Menu = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="menu dropdown-content z-[1] p-2 shadow rounded-box w-52 "
+                  className="menu dropdown-content bg-slate-400 z-1  p-2 shadow rounded-box w-52 "
                 >
                   <li onClick={handleClick}>
                     <Link href="/order-history">Order history </Link>
@@ -445,9 +230,9 @@ const Menu = () => {
         ) : (
           <>
             {" "}
-            <li>
+            <li className="sm:block hidden">
               <Link
-                className="flex items-center btn btn-ghost text-custom-btn-text border-none rounded-btn"
+                className="flex items-center btn btn-ghost  text-custom-btn-text border-none rounded-btn"
                 href={"/signin"}
               >
                 <svg
@@ -473,6 +258,27 @@ const Menu = () => {
           </>
         )}
       </ul>
+      <div className="sm:hidden ">
+        {/* Burger icon to toggle menu  */}
+        <button
+          onClick={toggleMenu}
+          className=" justify-end font-bold text-white hover:text-orange-500 focus:text-orange-400 focus:outline-none"
+        >
+          <svg
+            className="w-8 h-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d={menuOpen ? "" : "M4 6h16M4 12h16M4 18h16"}
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 };
