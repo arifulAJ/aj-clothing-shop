@@ -19,6 +19,7 @@ const config: Config = {
         "custom-bg-white": "#FFFFFF",
         "custom-bg-button": "#FF6600",
         "custom-bg-nav": "#0071DC",
+        "custom-bg-nav-button": "#004F9A",
         // You can add as many custom colors as you need
       },
       textColor: {
