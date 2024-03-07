@@ -1,3 +1,4 @@
+import HeroSection from "@/components/heropage/heroSection";
 import ProductsItems from "@/components/products/productsItems";
 
 import ProductService from "@/lib/services/productServices";
@@ -14,13 +15,17 @@ export const metadata: Metadata = {
     "next js server connection and server reastud",
 };
 
-export default async function Home() {
-  const featureProducts = await ProductService.getFeatured();
-  const latestProducts = await ProductService.getLatest();
+export default function Home() {
+  // const featureProducts = await ProductService.getFeatured();
+  // const latestProducts = await ProductService.getLatest();
 
   return (
     <>
-      <div className="w-full carousel rounded-box mt-4">
+      {/* this is home page of my ecommarc website land all of your decretion in landign page */}
+      <HeroSection />
+
+      {/* rest of the fetur and product itmes */}
+      {/* <div className="w-full carousel rounded-box mt-4">
         <h1>this is latest product</h1>
         {featureProducts.map((product, index) => (
           <div
@@ -61,7 +66,7 @@ export default async function Home() {
             product={convertDocToObj(product)}
           />
         ))}
-      </div>
+      </div> */}
     </>
   );
 }
