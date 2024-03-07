@@ -2,11 +2,10 @@
 
 import useCartService from "@/lib/hooks/useCartStore";
 import { OrderItem } from "@/lib/models/orderModel";
-import { useRouter } from "next/navigation";
+
 import { useState, useEffect } from "react";
 
 export default function AddToCart({ item }: { item: OrderItem }) {
-  const router = useRouter();
   const { items, increase, decreses } = useCartService();
   const [existItem, setExistItem] = useState<OrderItem | undefined>();
   useEffect(() => {
@@ -15,8 +14,7 @@ export default function AddToCart({ item }: { item: OrderItem }) {
   const addToCarthandeler = () => {
     increase(item);
   };
-  console.log(existItem, "add to card itme");
-  console.log(items, "all the items");
+
   return existItem ? (
     <div className="card-actions justify-center align-middle ">
       <button className="btn" type="button" onClick={() => decreses(existItem)}>
