@@ -1,9 +1,9 @@
 // import bcrypt from "bcrypt";
-// // Define the password to hash
+// Define the password to hash
 // const passwordToHash = "123456";
 
-// // Generate the hashed password synchronously with bcrypt
-// const hashedPassword = bcrypt.hashSync(passwordToHash, 10); // 10 is the number of rounds for salt generation
+// Generate the hashed password synchronously with bcrypt
+//const hashedPassword = bcrypt.hashSync(passwordToHash, 10); // 10 is the number of rounds for salt generation
 
 // const data = {
 //   users: [
@@ -20,125 +20,101 @@
 //       isAdmin: false,
 //     },
 //   ],
-// import bcrypt from "bcryptjs";
+import bcrypt from "bcryptjs";
 
-// const data = {
-//   users: [
-//     {
-//       name: "John",
-//       email: "admin@example.com",
-//       password: bcrypt.hashSync("123456"),
-//       isAdmin: true,
-//     },
-//     {
-//       name: "Jane",
-//       email: "user@example.com",
-//       password: bcrypt.hashSync("123456"),
-//       isAdmin: false,
-//     },
-//   ],
-//   products: [
-//     {
-//       name: "free shirt",
-//       slug: "free-shirt",
-//       category: "Shirts",
-//       image:
-//         "https://media.centrepointstores.com/i/centrepoint/9206464-MXMWOVENTOPST1123S-SPW2223922_01-2100.jpg?fmt=auto&$quality-standard$&sm=c&$prodimg-m-prt-pdp-2x$",
-//       price: 72,
-//       brand: "Luwise vuiton",
-//       rating: 4.5,
-//       numReviews: 8,
-//       countInStock: 20,
-//       description: "a populer shirt",
-//       isFeatured: true,
-//       banner:
-//         "https://media.centrepointstores.com/i/centrepoint/9206464-MXMWOVENTOPST1123S-SPW2223922_01-2100.jpg?fmt=auto&$quality-standard$&sm=c&$prodimg-m-prt-pdp-2x$",
-//     },
-//     {
-//       name: "medium shirt",
-//       slug: "midium-shirt",
-//       category: "Shirts",
-//       image: "https://fabrilife.com/products/646c762a7496e-square.jpg",
-//       price: 62,
-//       brand: "Luwise vuiton",
-//       rating: 4.5,
-//       numReviews: 8,
-//       countInStock: 10,
-//       description: "a populer shirt",
-//       isFeatured: true,
-//       banner: "https://fabrilife.com/products/646c762a7496e-square.jpg",
-//     },
-//     {
-//       name: "small shirt",
-//       slug: "small-shirt",
-//       category: "Shirts",
-//       image: "https://fabrilife.com/products/646c762a7496e-square.jpg",
-//       price: 52,
-//       brand: "Luwise vuiton",
-//       rating: 4.8,
-//       numReviews: 8,
-//       countInStock: 30,
-//       description: "a populer shirt",
-//       isFeatured: true,
-//       banner: "https://fabrilife.com/products/646c762a7496e-square.jpg",
-//     },
-//     {
-//       name: "small shirt16",
-//       slug: "small-shirt16",
-//       category: "Shirts16",
-//       image: "https://fabrilife.com/products/646c762a7496e-square.jpg",
-//       price: 52,
-//       brand: "Luwise vuiton6",
-//       rating: 4.8,
-//       numReviews: 8,
-//       countInStock: 30,
-//       description: "a populer shirt6",
-//       isFeatured: true,
-//       banner: "https://fabrilife.com/products/646c762a7496e-square.jpg",
-//     },
-//     {
-//       name: "small shirt125",
-//       slug: "small-shirt125",
-//       category: "Shirts25",
-//       image: "https://fabrilife.com/products/646c762a7496e-square.jpg",
-//       price: 52,
-//       brand: "Luwise vuiton5",
-//       rating: 4.8,
-//       numReviews: 8,
-//       countInStock: 30,
-//       description: "a populer shirt5",
-//       isFeatured: true,
-//       banner: "https://fabrilife.com/products/646c762a7496e-square.jpg",
-//     },
-//     {
-//       name: "small shirt124",
-//       slug: "small-shirt124",
-//       category: "Shirts24",
-//       image: "https://fabrilife.com/products/646c762a7496e-square.jpg",
-//       price: 52,
-//       brand: "Luwise vuiton4",
-//       rating: 4.8,
-//       numReviews: 8,
-//       countInStock: 30,
-//       description: "a populer shirt",
-//       isFeatured: true,
-//       banner: "https://fabrilife.com/products/646c762a7496e-square.jpg",
-//     },
-//     {
-//       name: "small shirt123",
-//       slug: "small-shirt123",
-//       category: "Shirts23",
-//       image: "https://fabrilife.com/products/646c762a7496e-square.jpg",
-//       price: 52,
-//       brand: "Luwise vuiton3",
-//       rating: 4.8,
-//       numReviews: 8,
-//       countInStock: 30,
-//       description: "a populer shirt3",
-//       isFeatured: true,
-//       banner: "https://fabrilife.com/products/646c762a7496e-square.jpg",
-//     },
-//   ],
-// };
+const data = {
+  users: [
+    {
+      name: "John",
+      email: "admin@example.com",
+      password: bcrypt.hashSync("123456"),
+      isAdmin: true,
+    },
+  ],
+  products: [
+    {
+      name: "litle girl red frog",
+      slug: "litle-girl-red-frog",
+      category: "Frog",
+      image:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/little_girl_red_dres_wnehz1.jpg",
+      price: 32,
+      brand: "Aarong",
+      rating: 4,
+      numReviews: 8,
+      countInStock: 20,
+      description:
+        "this is little girl  red frog  there are diffrent varient of it",
+      isFeatured: true,
+      banner:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/little_girl_red_dres_wnehz1.jpg",
+    },
+    {
+      name: "Full lenght scart",
+      slug: "full-length-scart",
+      category: "scart",
+      image:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/full_scart_rwdvto.jpg",
+      price: 46,
+      brand: "DorjiBari",
+      rating: 4.5,
+      numReviews: 8,
+      countInStock: 30,
+      description:
+        "the most populer  one in the market also there are doffrent varient of  it ",
+      isFeatured: true,
+      banner:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/full_scart_rwdvto.jpg",
+    },
+    {
+      name: "Logn scart  with white  color",
+      slug: "logn-scart-with-white-color",
+      category: "Scart",
+      image:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/log_scart_white_ljyak4.jpg",
+      price: 16,
+      brand: "Richman",
+      rating: 4.5,
+      numReviews: 8,
+      countInStock: 60,
+      description: "this is most beautiful  and long scart with white color.",
+      isFeatured: true,
+      banner:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/log_scart_white_ljyak4.jpg",
+    },
+    {
+      name: "Short scart ",
+      slug: "short-scart",
+      category: "Scart",
+      image:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/sort_scart_gpcbvc.jpg",
+      price: 12,
+      brand: "Luwise vuiton",
+      rating: 4.8,
+      numReviews: 8,
+      countInStock: 30,
+      description: "This is very populer one  for the summer ",
+      isFeatured: true,
+      banner:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/sort_scart_gpcbvc.jpg",
+    },
+    {
+      name: "Long lehenga",
+      slug: "long-lehenga",
+      category: "lehenga",
+      image:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/log_dres_iz4koz.jpg",
+      price: 52,
+      brand: "Luwise vuiton",
+      rating: 4.8,
+      numReviews: 8,
+      countInStock: 30,
+      description: "a populer lehenga in the india ",
+      isFeatured: true,
+      banner:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/log_dres_iz4koz.jpg",
+    },
+  ],
+};
 
-// export default data;
+export default data;

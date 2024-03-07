@@ -15,7 +15,8 @@ export default function AddToCart({ item }: { item: OrderItem }) {
   const addToCarthandeler = () => {
     increase(item);
   };
-
+  console.log(existItem, "add to card itme");
+  console.log(items, "all the items");
   return existItem ? (
     <div className="card-actions justify-center align-middle ">
       <button className="btn" type="button" onClick={() => decreses(existItem)}>

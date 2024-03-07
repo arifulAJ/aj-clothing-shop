@@ -55,16 +55,19 @@ export default function useCartService() {
     totalPrice,
     paymentMethod,
     shippingAddress,
+
     increase: (item: OrderItem) => {
       const exist = items.find((x) => x.slug === item.slug);
-      const updateCardItems = exist
-        ? items.map((x) => (x.slug ? { ...exist, qty: exist.qty + 1 } : x))
+      const updatedCardItems = exist
+        ? items.map((x) =>
+            x.slug === item.slug ? { ...x, qty: x.qty + 1 } : x
+          )
         : [...items, { ...item, qty: 1 }];
 
       const { itemsPrice, shippingPrice, taxPrice, totalPrice } =
-        calcPrice(updateCardItems);
+        calcPrice(updatedCardItems);
       cartStore.setState({
-        items: updateCardItems,
+        items: updatedCardItems,
         itemsPrice,
         shippingPrice,
         taxPrice,
