@@ -1,4 +1,4 @@
-import HeroSection from "@/components/heropage/heroSection";
+import React from "react";
 import ProductsItems from "@/components/products/productsItems";
 
 import ProductService from "@/lib/services/productServices";
@@ -7,7 +7,6 @@ import { convertDocToObj } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import FeatureProduct from "./featureProduct/page";
 
 export const metadata: Metadata = {
   title: process.env.NEXT_PUBLIC_APP_NAME || "aj super shop",
@@ -15,19 +14,12 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_APP_DESC ||
     "next js server connection and server reastud",
 };
-
-export default function Home() {
-  // const featureProducts = await ProductService.getFeatured();
-  // const latestProducts = await ProductService.getLatest();
-
+const FeatureProduct = async () => {
+  const featureProducts = await ProductService.getFeatured();
+  const latestProducts = await ProductService.getLatest();
   return (
-    <>
-      {/* this is home page of my ecommarc website land all of your decretion in landign page */}
-      <HeroSection />
-      <FeatureProduct />
-
-      {/* rest of the fetur and product itmes */}
-      {/* <div className="w-full carousel rounded-box mt-4">
+    <div>
+      <div className="w-full carousel rounded-box mt-4">
         <h1>this is latest product</h1>
         {featureProducts.map((product, index) => (
           <div
@@ -68,7 +60,9 @@ export default function Home() {
             product={convertDocToObj(product)}
           />
         ))}
-      </div> */}
-    </>
+      </div>
+    </div>
   );
-}
+};
+
+export default FeatureProduct;
