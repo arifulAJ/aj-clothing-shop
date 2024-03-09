@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef } from "react";
 
@@ -29,80 +30,112 @@ function HeroSection() {
     <div className="px-1 md:px-4 lg:px-24 py-8 ">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4  overflow-y-hidden  py-2 pb-6">
         {/* left item of hero */}
-        <div className="  relative ">
-          <figure className="relative overflow-hidden rounded-2xl">
-            <img
-              src="https://res.cloudinary.com/arifulislam/image/upload/v1709797351/cloth-min-removebg-preview-min_trfjl1.png"
-              alt="Shoes"
-              className="md:w-full md:h-96  object-cover"
-            />
-            <div className="absolute inset-0 flex items-end justify-center  -translate-y-10">
-              <div className="text-center text-black">
-                <h2 className="text-xl font-bold">The weading dresh</h2>
-                <Link
-                  title="shop now"
-                  className="font-normal underline"
-                  href={"weading"}
-                >
-                  shop now
-                </Link>
+        <div className="relative">
+          {" "}
+          <Link href={"/cart"} className="">
+            <figure className="relative overflow-hidden rounded-2xl">
+              <img
+                src="https://res.cloudinary.com/arifulislam/image/upload/v1709797351/cloth-min-removebg-preview-min_trfjl1.png"
+                alt="Shoes"
+                className="md:w-full sm:h-full md:h-96 object-cover transition duration-300 ease-in-out"
+              />
+              <div className="absolute inset-0 flex justify-center text-black hover:text-white bg-black bg-opacity-0 transition duration-300 ease-in-out hover:bg-opacity-50">
+                <div className="absolute bottom-0 text-center  w-full">
+                  <h2 className="text-xl font-bold">The wedding dress</h2>
+                  <Link
+                    title="shop now"
+                    className="font-normal underline"
+                    href={"weading"}
+                  >
+                    shop now
+                  </Link>
+                </div>
               </div>
-            </div>
-          </figure>
+            </figure>
+          </Link>
         </div>
+
         {/* middel item of hero */}
         <div
           className="h-96 w-full md:col-span-2  carousel carousel-vertical rounded-box"
           ref={carouselRef}
         >
           {" "}
-          <div className="carousel-item relative w-full h-full">
-            <img src="https://res.cloudinary.com/arifulislam/image/upload/v1709795099/swimm_shop-min_ojb7nf.jpg" />
-
-            <div className="absolute inset-0 flex items-end justify-center  -translate-y-5">
-              <div className="text-center text-black">
-                <h2 className="text-xl font-bold">The weading dresh</h2>
-                <Link
-                  title="shop now"
-                  className="font-normal underline"
-                  href={"weading"}
-                >
-                  shop now
-                </Link>
-              </div>
-            </div>
+          <div className="carousel-item">
+            {" "}
+            <Link href={"/cart"} className="relative  ">
+              <figure className="relative overflow-hidden rounded-2xl">
+                <img
+                  src="https://res.cloudinary.com/arifulislam/image/upload/v1709795099/swimm_shop-min_ojb7nf.jpg"
+                  alt="Shoes"
+                  className="md:w-full h-96 object-cover transition duration-300 ease-in-out"
+                />
+                <div className="absolute inset-0 flex justify-center text-black hover:text-white bg-black bg-opacity-0 transition duration-300 ease-in-out hover:bg-opacity-50">
+                  <div className="absolute bottom-0 text-center  w-full">
+                    <h2 className="text-xl font-bold">Suming costume</h2>
+                    <Link
+                      title="shop now"
+                      className="font-normal underline"
+                      href={"weading"}
+                    >
+                      shop now
+                    </Link>
+                  </div>
+                </div>
+              </figure>
+            </Link>
           </div>
-          <div className="carousel-item relative w-full h-full">
-            <img src="https://res.cloudinary.com/arifulislam/image/upload/v1709795098/skincare_hero-min_siodmt.jpg" />
-
-            <div className="absolute inset-0 flex items-end justify-center  -translate-y-5">
-              <div className="text-center text-black">
-                <h2 className="text-xl font-bold">The weading dresh</h2>
-                <Link
-                  title="shop now"
-                  className="font-normal underline"
-                  href={"weading"}
-                >
-                  shop now
-                </Link>
-              </div>
-            </div>
+          <div className="carousel-item">
+            {" "}
+            <Link href={"/cart"} className="relative  ">
+              <figure className="relative overflow-hidden rounded-2xl">
+                <img
+                  src="https://res.cloudinary.com/arifulislam/image/upload/v1709795098/skincare_hero-min_siodmt.jpg"
+                  alt="Shoes"
+                  className="md:w-full h-96 object-cover transition duration-300 ease-in-out"
+                />
+                <div className="absolute inset-0 flex justify-center text-black hover:text-white bg-black bg-opacity-0 transition duration-300 ease-in-out hover:bg-opacity-50">
+                  <div className="absolute bottom-0 text-center  w-full">
+                    <h2 className="text-xl font-bold">
+                      Glow your skin with this serum!
+                    </h2>
+                    <Link
+                      title="shop now"
+                      className="font-normal underline"
+                      href={"weading"}
+                    >
+                      shop now
+                    </Link>
+                  </div>
+                </div>
+              </figure>
+            </Link>
           </div>
-          <div className="carousel-item relative w-full h-full">
-            <img src="https://res.cloudinary.com/arifulislam/image/upload/v1709811346/pexels-antony-trivet-9980356_oypwtc.jpg" />
-
-            <div className="absolute inset-0 flex items-end justify-center  -translate-y-5">
-              <div className="text-center text-black">
-                <h2 className="text-xl font-bold">The weading dresh</h2>
-                <Link
-                  title="shop now"
-                  className="font-normal underline"
-                  href={"weading"}
-                >
-                  shop now
-                </Link>
-              </div>
-            </div>
+          <div className="carousel-item relative">
+            {" "}
+            <Link href={"/cart"} className="  ">
+              <figure className="relative overflow-hidden rounded-2xl">
+                <img
+                  src="https://res.cloudinary.com/arifulislam/image/upload/v1709811346/pexels-antony-trivet-9980356_oypwtc.jpg"
+                  alt="Shoes"
+                  className="md:w-full h-96 object-cover transition duration-300 ease-in-out"
+                />
+                <div className="absolute inset-0 flex justify-center text-black hover:text-white bg-black bg-opacity-0 transition duration-300 ease-in-out hover:bg-opacity-50">
+                  <div className="absolute bottom-0 text-center  w-full">
+                    <h2 className="text-xl font-bold">
+                      Eye Protect form the sun rays.
+                    </h2>
+                    <Link
+                      title="shop now"
+                      className="font-normal underline"
+                      href={"weading"}
+                    >
+                      shop now
+                    </Link>
+                  </div>
+                </div>
+              </figure>
+            </Link>
           </div>
         </div>
 
@@ -129,46 +162,35 @@ function HeroSection() {
         </div>
       </div>
       <div className="col-span-2">
-        <div className="carousel md:w-full">
-          <div id="item1" className="carousel-item w-full">
-            <img
-              src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
-              className="w-full md:h-96"
-            />
-          </div>
-          <div id="item2" className="carousel-item w-full">
-            <img
-              src="https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
-              className="w-full"
-            />
-          </div>
-          <div id="item3" className="carousel-item w-full">
-            <img
-              src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
-              className="w-full"
-            />
-          </div>
-          <div id="item4" className="carousel-item w-full">
-            <img
-              src="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
-              className="w-full"
-            />
-          </div>
+        <div className="relative">
+          {" "}
+          <Link href={"/cart"} className="">
+            <figure className="relative overflow-hidden rounded-2xl">
+              <img
+                src="https://res.cloudinary.com/arifulislam/image/upload/v1709963344/Group_1_1_gyjgjo.png"
+                alt="Shoes"
+                className="md:w-full h-24 md:h-40 "
+              />
+              <div className="absolute inset-0 flex justify-center text-black">
+                <div className="absolute pl-2 pt-1 pr-20 md:pt-6 md:pl-6  w-full ">
+                  <p className=" text-xs md:text-2xl font-bold ">
+                    Free Shipping. No Order Minimum. <br /> Only with AJ Shope
+                  </p>
+                  <p className="md:py-2 text-xs md:text-base font-light">
+                    Terms Apply.
+                  </p>
+                  <Link
+                    title="shop now"
+                    className=" text-xs md:text-base underline font-light"
+                    href={"weading"}
+                  >
+                    join with ajshope
+                  </Link>
+                </div>
+              </div>
+            </figure>
+          </Link>
         </div>
-        <div className="flex justify-center w-full py-2 gap-2">
-          <a href="#item1" className="btn btn-xs">
-            1
-          </a>
-          <a href="#item2" className="btn btn-xs">
-            2
-          </a>
-          <a href="#item3" className="btn btn-xs">
-            3
-          </a>
-          <a href="#item4" className="btn btn-xs">
-            4
-          </a>
-        </div>{" "}
       </div>
     </div>
   );
