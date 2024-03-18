@@ -26,6 +26,7 @@ function Responsive({ item }: { item: Product[] }) {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
+
     slidesToScroll: 4,
     initialSlide: 0,
 
@@ -35,7 +36,7 @@ function Responsive({ item }: { item: Product[] }) {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: true,
+          infinite: false,
           dots: false,
         },
       },
@@ -56,27 +57,73 @@ function Responsive({ item }: { item: Product[] }) {
       },
     ],
   };
+
   return (
     <div className="slider-container py-6">
-      <div className="text-right   mb-12">
-        <button className="button px-2 bg-primary " onClick={previous}>
-          Previous
+      <div className="text-right text-white   mb-12">
+        <button
+          className="button px-2 mx-2 bg-orange-400 rounded "
+          onClick={previous}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 19.5 8.25 12l7.5-7.5"
+            />
+          </svg>
         </button>
-        <button className="button px-2 bg-black" onClick={next}>
-          Next
+        <button className="button px-2 bg-orange-400 rounded" onClick={next}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m8.25 4.5 7.5 7.5-7.5 7.5"
+            />
+          </svg>
         </button>
       </div>
       <Slider ref={sliderRef} {...settings}>
         {item.map((slide, index) => {
-          return (
-            <div key={index}>
-              <Link href={`/product/${slide.slug}`}>
-                <img className="h-40 " src={slide.image} alt="" />
-                <p>Now {(slide.price * 0.65).toFixed(4)}</p>
-                <h3>{slide.name}</h3>
-              </Link>
-            </div>
-          );
+          if (slide.discounts && slide.discounts > 0) {
+            return (
+              <div className=" p-2" key={index}>
+                <Link href={`/product/${slide.slug}`}>
+                  <img
+                    className=" w-full h-60 rounded "
+                    src={slide.image}
+                    alt={slide.name}
+                  />
+
+                  <p className="flex justify-between py-2">
+                    <span className="text-green-900 text-xl font-semibold ">
+                      Now ${slide.price - slide.price * slide.discounts}
+                    </span>{" "}
+                    <span className="line-through font-thin">
+                      ${slide.price}
+                    </span>
+                  </p>
+                  <p>{slide.name}</p>
+                </Link>
+              </div>
+            );
+          } else {
+            return null; // Skip rendering this slide if it doesn't have discounts
+          }
         })}
       </Slider>
     </div>

@@ -31,6 +31,7 @@ const data = {
       isAdmin: true,
     },
   ],
+
   products: [
     {
       name: "litle girl red frog",
@@ -46,6 +47,8 @@ const data = {
       description:
         "this is little girl  red frog  there are diffrent varient of it",
       isFeatured: true,
+      discounts: 0.25,
+      flashDeal: true,
       banner:
         "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/little_girl_red_dres_wnehz1.jpg",
     },
@@ -63,6 +66,10 @@ const data = {
       description:
         "the most populer  one in the market also there are doffrent varient of  it ",
       isFeatured: true,
+
+      flashDeal: true,
+      discounts: 0.25,
+
       banner:
         "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/full_scart_rwdvto.jpg",
     },
@@ -79,6 +86,8 @@ const data = {
       countInStock: 60,
       description: "this is most beautiful  and long scart with white color.",
       isFeatured: true,
+      discounts: 0.25,
+      flashDeal: true,
       banner:
         "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/log_scart_white_ljyak4.jpg",
     },
@@ -95,6 +104,8 @@ const data = {
       countInStock: 30,
       description: "This is very populer one  for the summer ",
       isFeatured: true,
+
+      flashDeal: true,
       banner:
         "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/sort_scart_gpcbvc.jpg",
     },
@@ -111,6 +122,16 @@ const data = {
       countInStock: 30,
       description: "a populer lehenga in the india ",
       isFeatured: true,
+      discounts: 0.25,
+      flashDeal: true,
+      dicountPrice: {
+        price: 23,
+        discountPrice: 23,
+        startDate: new Date(),
+        endDate: new Date(),
+      },
+      color: ["Black", "White"],
+
       banner:
         "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/log_dres_iz4koz.jpg",
     },

@@ -34,6 +34,7 @@ export default async function ProductDetails({
       <div className="my-2">
         <Link href={"/"}> back to products</Link>
       </div>
+
       <div className='grid md:grid-cols-4 md"gap-3'>
         <div className="md:col-span-2">
           <Image
@@ -63,8 +64,8 @@ export default async function ProductDetails({
                 <div>Price</div>
                 <div>
                   $
-                  {product.isFeatured
-                    ? (product.price * 0.45).toFixed(4)
+                  {product.discounts !== undefined
+                    ? product.price - product.price * product.discounts
                     : product.price}
                 </div>
               </div>

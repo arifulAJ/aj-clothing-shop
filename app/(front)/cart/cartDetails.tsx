@@ -1,5 +1,6 @@
 "use client";
 import useCartService from "@/lib/hooks/useCartStore";
+import { useSavings } from "@/lib/services/discountSaving";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -9,6 +10,9 @@ export default function CartDeatils() {
   const router = useRouter();
   const { items, itemsPrice, decreses, increase } = useCartService();
   const [mounted, setMounted] = useState(false);
+
+  const saving = useSavings(items);
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -67,7 +71,11 @@ export default function CartDeatils() {
                         +{" "}
                       </button>
                     </td>
-                    <td>{item.price}</td>
+                    <td>
+                      {item.discounts === undefined
+                        ? item.price
+                        : item.price - item.price * item.discounts}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -79,8 +87,26 @@ export default function CartDeatils() {
                 <ul>
                   <li>
                     <div className="pb-3 text-xl">
-                      Subtotal ({items.reduce((a, c) => a + c.qty, 0)}): $
-                      {itemsPrice}
+                      Subtotal ({items.reduce((a, c) => a + c.qty, 0)}):{" "}
+                      {saving === 0 ? (
+                        <span className="text-green-900">${itemsPrice}</span>
+                      ) : (
+                        <span className="line-through">${itemsPrice}</span>
+                      )}
+                      <p>
+                        {saving !== 0 ? (
+                          <span>
+                            {" "}
+                            Saviengs <span>{saving}</span>
+                          </span>
+                        ) : (
+                          <></>
+                        )}
+                      </p>
+                      <p>
+                        Estimeted total <span>{itemsPrice - saving}</span>
+                        {/* {dis===undefined?itemsPrice:itemsPrice - (items.map(x=>x.price * (1 - x.discounts) * x.qty))} */}
+                      </p>
                     </div>
                   </li>
                   <li>

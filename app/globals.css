@@ -27,3 +27,6 @@ body {
     text-wrap: balance;
   }
 } */
+.slick-slider .slick-slide {
+  padding: 0 15px;
+}

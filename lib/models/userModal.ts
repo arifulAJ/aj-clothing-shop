@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
       enum: ["admin", "user"],
-      default: "user",
+      default: "admin",
     },
     isAdmin: { type: Schema.Types.Boolean, required: true, default: false },
     image: {

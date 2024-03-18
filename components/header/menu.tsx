@@ -8,15 +8,18 @@ import SignOutButton from "../from/signOutButton";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import SubMenu from "./subMenu";
+import { useSavings } from "@/lib/services/discountSaving";
 
 const Menu = () => {
-  const { items } = useCartService();
+  const { items, itemsPrice } = useCartService();
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State to track menu open/close
   const menuRef = useRef<HTMLDivElement>(null);
   const { data: session } = useSession();
   const user = session?.user as { role: string }; // Use lowercase 'string'
   const isAdmins = user?.role === "admin";
+
+  const saving = useSavings(items);
 
   const handleClick = () => {
     (document.activeElement as HTMLElement).blur();
@@ -124,7 +127,8 @@ const Menu = () => {
                 )}{" "}
               </div>
               <div className="text-white font-normal text-xs">
-                $ {items.reduce((a, c) => a + c.price * c.qty, 0)}
+                {/* $ {items.reduce((a, c) => a + c.price * c.qty, 0)} */}$
+                <span>{itemsPrice - saving}</span>
               </div>
             </div>
           </Link>

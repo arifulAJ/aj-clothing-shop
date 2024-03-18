@@ -1,6 +1,7 @@
 "use client";
 import CheckoutSteps from "@/components/orderPlace/CheckoutSteps";
 import useCartService from "@/lib/hooks/useCartStore";
+import { useSavings } from "@/lib/services/discountSaving";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,6 +22,7 @@ const Form = () => {
 
     clear,
   } = useCartService();
+  const savign = useSavings(items);
 
   async function handleSubmit() {
     const postData = {
@@ -152,7 +154,7 @@ const Form = () => {
                 <li>
                   <div className="flex justify-between">
                     <div>Itmes</div>
-                    <div>${itemsPrice}</div>
+                    <div>${itemsPrice - savign}</div>
                   </div>
                 </li>
                 <li>

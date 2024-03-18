@@ -20,24 +20,29 @@
 //     products,
 //   })
 // }
+
 import data from "@/lib/data";
 import dbConnect from "@/lib/dbConnect";
-import productModel from "@/lib/models/ProductModels";
+import ProductModel from "@/lib/models/ProductModels";
+import Discount from "@/lib/models/discountModel";
 import UserModel from "@/lib/models/userModal";
 import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async (request: NextRequest) => {
   const { users, products } = data;
-
+  console.log(products);
   await dbConnect();
   await UserModel.deleteMany();
   await UserModel.insertMany(users);
-  await productModel.deleteMany();
-  await productModel.insertMany(products);
+  // await Discount.insertMany(discount);
+
+  await ProductModel.deleteMany();
+  await ProductModel.insertMany(products);
 
   return NextResponse.json({
-    message: "seed successfully",
+    message: "seeded successfully",
     users,
     products,
+    // discount,
   });
 };

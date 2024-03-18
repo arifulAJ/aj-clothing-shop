@@ -110,12 +110,17 @@ export default function useCartService() {
 }
 
 const calcPrice = (items: OrderItem[]) => {
-  const itemsPrice = round2(
-      items.reduce((acc, item) => acc - item.price * item.qty, 0)
-    ),
-    shippingPrice = round2(itemsPrice > 200 ? 0 : 100),
-    taxPrice = round2(Number(0.15 * itemsPrice)),
-    totalPrice = round2(itemsPrice + shippingPrice + taxPrice);
+  let itemsPrice = round2(
+    items.reduce((acc, item) => acc + item.price * item.qty, 0)
+  );
+  const shippingPrice = round2(itemsPrice > 200 ? 0 : 20);
+  const taxRate = 0.15; // Assuming tax rate is always 15%
+  const taxPrice = round2(Number(taxRate * itemsPrice));
 
-  return { itemsPrice, shippingPrice, taxPrice, totalPrice };
+  return {
+    itemsPrice,
+    shippingPrice,
+    taxPrice,
+    totalPrice: itemsPrice + shippingPrice + taxPrice,
+  };
 };
