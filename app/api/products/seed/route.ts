@@ -24,7 +24,7 @@
 import data from "@/lib/data";
 import dbConnect from "@/lib/dbConnect";
 import ProductModel from "@/lib/models/ProductModels";
-import Discount from "@/lib/models/discountModel";
+
 import UserModel from "@/lib/models/userModal";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -43,6 +43,5 @@ export const GET = async (request: NextRequest) => {
     message: "seeded successfully",
     users,
     products,
-    // discount,
   });
 };
