@@ -113,11 +113,11 @@ function Responsive({ item }: { item: Product[] }) {
                     <span className="text-green-900 text-xl font-semibold ">
                       Now ${slide.price - slide.price * slide.discounts}
                     </span>{" "}
-                    <span className="line-through font-thin">
+                    <span className=" line-through text-gray-600">
                       ${slide.price}
                     </span>
                   </p>
-                  <p>{slide.name}</p>
+                  <p className="text-black">{slide.name}</p>
                 </Link>
               </div>
             );
