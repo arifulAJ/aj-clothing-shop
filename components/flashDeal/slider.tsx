@@ -110,7 +110,7 @@ function Responsive({ item }: { item: Product[] }) {
                   />
 
                   <p className="flex justify-between py-2">
-                    <span className="text-green-900 text-xl font-semibold ">
+                    <span className="text-green-900  font-semibold ">
                       Now ${slide.price - slide.price * slide.discounts}
                     </span>{" "}
                     <span className=" line-through text-gray-600">

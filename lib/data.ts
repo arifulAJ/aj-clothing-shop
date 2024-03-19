@@ -48,7 +48,7 @@ const data = {
         "this is little girl  red frog  there are diffrent varient of it",
       isFeatured: true,
       discounts: 0.25,
-      flashDeal: true,
+
       banner:
         "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/little_girl_red_dres_wnehz1.jpg",
     },
@@ -67,7 +67,6 @@ const data = {
         "the most populer  one in the market also there are doffrent varient of  it ",
       isFeatured: true,
 
-      flashDeal: true,
       discounts: 0.25,
 
       banner:
@@ -87,7 +86,7 @@ const data = {
       description: "this is most beautiful  and long scart with white color.",
       isFeatured: true,
       discounts: 0.25,
-      flashDeal: true,
+
       banner:
         "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/log_scart_white_ljyak4.jpg",
     },
@@ -96,7 +95,7 @@ const data = {
       slug: "short-scart",
       category: "Scart",
       image:
-        "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/sort_scart_gpcbvc.jpg",
+        "https://res.cloudinary.com/arifulislam/image/upload/v1710831459/sort_scart-min_ejp99x.jpg",
       price: 12,
       brand: "Luwise vuiton",
       rating: 4.8,
@@ -105,9 +104,8 @@ const data = {
       description: "This is very populer one  for the summer ",
       isFeatured: true,
 
-      flashDeal: true,
       banner:
-        "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/sort_scart_gpcbvc.jpg",
+        "https://res.cloudinary.com/arifulislam/image/upload/v1710831459/sort_scart-min_ejp99x.jpg",
     },
     {
       name: "Long lehenga",
@@ -123,17 +121,71 @@ const data = {
       description: "a populer lehenga in the india ",
       isFeatured: true,
       discounts: 0.25,
-      flashDeal: true,
-      dicountPrice: {
-        price: 23,
-        discountPrice: 23,
-        startDate: new Date(),
-        endDate: new Date(),
-      },
+
       color: ["Black", "White"],
 
       banner:
         "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/log_dres_iz4koz.jpg",
+    },
+    {
+      name: "Shoulder Bag",
+      slug: "Shoulder-Bag",
+      category: "bags",
+      image:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1710830727/sidebad-min_evyjwc.jpg",
+      price: 250,
+      brand: " Senda Vietnam",
+      rating: 4.5,
+      numReviews: 8,
+      countInStock: 20,
+      description:
+        "a masterpiece of craftsmanship, merging traditional soldering with cutting-edge litz wire technology. Adorn yourself with elegance and innovation, as each intricate joint embodies a legacy of excellence in both form and function",
+      isFeatured: false,
+
+      color: ["Red", "Black", "Oreange"],
+
+      banner:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1710830727/sidebad-min_evyjwc.jpg",
+    },
+    {
+      name: "Hand Bag by crocodile leather",
+      slug: "Hand-Bag-crocodile",
+      category: "bags",
+      image:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1710830730/corcdail_bag-min_ezpdvr.jpg",
+      price: 550,
+      brand: " seman leather",
+      rating: 4.5,
+      numReviews: 8,
+      countInStock: 40,
+      description:
+        "Introducing our Crocodile Leather Hand Bag: a symbol of luxury and sophistication. Crafted with precision and care, each bag exudes timeless elegance and unparalleled quality. Elevate your style with this exquisite accessory, a statement piece that speaks volumes about your discerning taste.",
+      isFeatured: false,
+
+      color: ["Black", "Green"],
+
+      banner:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1710830730/corcdail_bag-min_ezpdvr.jpg",
+    },
+    {
+      name: "Small Hand Bag ",
+      slug: "small-Hand-Bag",
+      category: "bags",
+      image:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1710830707/had_bag_arefd8.jpg",
+      price: 450,
+      brand: "luies vuiton",
+      rating: 4.5,
+      numReviews: 8,
+      countInStock: 30,
+      description:
+        "Presenting our Small Hand Bag: a chic and versatile accessory designed for the modern woman on the go. Crafted with meticulous attention to detail, this compact yet stylish bag effortlessly combines fashion with functionality. Whether you're running errands or stepping out for a night on the town, this handbag is the perfect companion, offering convenience without compromising on style.",
+      isFeatured: false,
+
+      color: ["Red"],
+
+      banner:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1710830707/had_bag_arefd8.jpg",
     },
   ],
 };

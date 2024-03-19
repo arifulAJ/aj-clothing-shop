@@ -9,6 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import FeatureProduct from "./featureProduct/page";
 import FlashDeal from "@/components/flashDeal/flashDeal";
+import ContinueShopping from "@/components/continueShopping/shopping";
 
 export const metadata: Metadata = {
   title: process.env.NEXT_PUBLIC_APP_NAME || "aj super shop",
@@ -26,7 +27,8 @@ export default function Home() {
       {/* this is home page of my ecommarc website land all of your decretion in landign page */}
       <HeroSection />
       <FlashDeal />
-      <FeatureProduct />
+      <ContinueShopping />
+      {/* <FeatureProduct /> */}
 
       {/* rest of the fetur and product itmes */}
       {/* <div className="w-full carousel rounded-box mt-4">
