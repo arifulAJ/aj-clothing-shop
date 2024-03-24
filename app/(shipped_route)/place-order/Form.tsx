@@ -33,7 +33,6 @@ const Form = () => {
       taxPrice,
       shippingPrice,
       totalPrice,
-      clear,
     };
 
     try {
@@ -42,12 +41,16 @@ const Form = () => {
           "Content-Type": "application/json",
         },
       });
+      const data = await res.data;
 
       if (res.status === 201) {
-        toast.success("Order placed successfully");
+        alert(data.message);
+        clear();
+
         router.push(`/order/${res.data.order._id}`);
+        // Call the clear function to clear all cart items after successful order placement
       } else {
-        toast.error(res.data.message);
+        toast.error(data.message);
       }
     } catch (error) {
       console.error("Error placing order:", error);
@@ -59,10 +62,11 @@ const Form = () => {
     if (!paymentMethod) {
       return router.push("/payment");
     }
+
     if (items.length === 0) {
       return router.push("/");
     }
-  }, [items, paymentMethod, router]);
+  }, [paymentMethod, router]);
   return (
     <div className="px-32">
       <CheckoutSteps current={3} />
@@ -132,7 +136,12 @@ const Form = () => {
                         <span> {item.qty}</span>
                       </td>
                       <td>
-                        <span> {item.price}</span>
+                        <span>
+                          {" "}
+                          {item.discounts === undefined
+                            ? item.price
+                            : item.price - item.price * item?.discounts}
+                        </span>
                       </td>
                     </tr>
                   ))}
@@ -166,13 +175,13 @@ const Form = () => {
                 <li>
                   <div className="flex justify-between">
                     <div>Shipping</div>
-                    <div>${shippingPrice}</div>
+                    <div>${shippingPrice} </div>
                   </div>
                 </li>
                 <li>
                   <div className="flex justify-between">
                     <div>Total</div>
-                    <div>${totalPrice}</div>
+                    <div>${totalPrice - savign}</div>
                   </div>
                 </li>
                 <li>

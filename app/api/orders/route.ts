@@ -12,7 +12,7 @@ const calcPrices = (orderItems: OrderItem[]) => {
     orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
   );
   // Calculate the shipping price
-  const shippingPrice = round2(itemsPrice > 100 ? 0 : 10);
+  const shippingPrice = round2(itemsPrice > 100 ? 10 : 0);
   // Calculate the tax price
   const taxPrice = round2(Number((0.15 * itemsPrice).toFixed(2)));
   // Calculate the total price
@@ -45,14 +45,25 @@ export async function POST(request: Request) {
       },
       "price"
     );
-    // console.log(dbProductPrices, "this is product price");
-    const dbOrderItems = payload.items.map((x: { _id: string }) => ({
-      ...x,
-      product: x._id,
-      price: dbProductPrices.find((x: any) => x?._id === x._id)?.price,
-      _id: undefined,
-    }));
 
+    // const dbOrderItems = payload.items.map((x: { _id: string }) => ({
+    //   ...x,
+    //   product: x._id,
+    //   price: dbProductPrices.find((x: any) => x?._id === x._id)?.price,
+    //   _id: undefined,
+    // }));
+    const dbOrderItems = payload.items.map((item: { _id: string }) => {
+      const productPrice = dbProductPrices.find((product: any) =>
+        product._id.equals(item?._id)
+      );
+
+      return {
+        ...item,
+        product: item?._id, // Assuming item._id is the product ID
+        price: productPrice ? productPrice.price : 0, // Set price to 0 if product price is not found
+        _id: undefined,
+      };
+    });
     const { itemsPrice, taxPrice, shippingPrice, totalPrice } =
       calcPrices(dbOrderItems);
 

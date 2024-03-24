@@ -1,13 +1,7 @@
 import HeroSection from "@/components/heropage/heroSection";
-import ProductsItems from "@/components/products/productsItems";
-
-import ProductService from "@/lib/services/productServices";
-import { convertDocToObj } from "@/lib/utils";
 
 import { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import FeatureProduct from "./featureProduct/page";
+
 import FlashDeal from "@/components/flashDeal/flashDeal";
 import ContinueShopping from "@/components/continueShopping/shopping";
 
@@ -23,9 +17,11 @@ export default function Home() {
   // const latestProducts = await ProductService.getLatest();
 
   return (
-    <>
+    <div>
       {/* this is home page of my ecommarc website land all of your decretion in landign page */}
+
       <HeroSection />
+
       <FlashDeal />
       <ContinueShopping />
       {/* <FeatureProduct /> */}
@@ -73,6 +69,6 @@ export default function Home() {
           />
         ))}
       </div> */}
-    </>
+    </div>
   );
 }

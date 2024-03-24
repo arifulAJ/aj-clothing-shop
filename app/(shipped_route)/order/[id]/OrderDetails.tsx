@@ -1,5 +1,7 @@
 "use client";
-import { Order, OrderItem } from "@/lib/models/orderModel";
+
+import { Order } from "@/lib/models/orderModel";
+
 import useAxios from "@/utils/axiose/useAxiouse";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { useSession } from "next-auth/react";
@@ -50,6 +52,16 @@ export default function OrderDetails({
     isPaid,
     paidAt,
   } = data;
+
+  let save: any = [];
+
+  items.map((item) => {
+    if (item.discounts) {
+      save.push(item.price * item?.discounts);
+    }
+  });
+  const sum = save.reduce((total: number, num: number) => total + num, 0);
+
   return (
     <div>
       <h1 className="text-2xl py-4 ">Order {orderId}</h1>
@@ -119,7 +131,13 @@ export default function OrderDetails({
                         <span> {item.qty}</span>
                       </td>
                       <td>
-                        <span> {item.price}</span>
+                        <span>
+                          {" "}
+                          ${" "}
+                          {item.discounts > 0
+                            ? item.price - item.price * item.discounts
+                            : item.price}{" "}
+                        </span>
                       </td>
                     </tr>
                   ))}
@@ -141,7 +159,7 @@ export default function OrderDetails({
                 <li>
                   <div className="flex justify-between">
                     <div>Itmes</div>
-                    <div>${itemsPrice}</div>
+                    <div>${itemsPrice - sum}</div>
                   </div>
                 </li>
                 <li>
@@ -159,7 +177,7 @@ export default function OrderDetails({
                 <li>
                   <div className="flex justify-between">
                     <div>Total</div>
-                    <div>${totalPrice}</div>
+                    <div>${totalPrice - sum}</div>
                   </div>
                 </li>
                 {!isPaid && paymentMethod === "PayPal" && (

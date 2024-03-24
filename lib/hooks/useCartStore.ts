@@ -103,6 +103,7 @@ export default function useCartService() {
     clear: () => {
       cartStore.setState({
         items: [],
+        itemsPrice: 0,
       });
     },
     init: () => cartStore.setState(initialState),

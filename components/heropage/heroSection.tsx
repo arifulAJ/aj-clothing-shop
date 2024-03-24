@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import Link from "next/link";
 import React, { useEffect, useRef } from "react";
 
@@ -27,7 +27,7 @@ function HeroSection() {
     };
   }, []);
   return (
-    <div className="px-1 md:px-4 lg:px-24 py-8 ">
+    <div className="px-1 md:px-4 lg:px-24 py-8 bg-gray-100">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4  overflow-y-hidden  py-2 pb-6">
         {/* left item of hero */}
         <div className="relative">
@@ -150,14 +150,14 @@ function HeroSection() {
           </div>
         </div>
       </div>
-      <div className="col-span-2">
-        <div className="relative">
+      <div className="col-span-2 ">
+        <div className="relative    ">
           {" "}
-          <div className="relative overflow-hidden rounded-2xl">
+          <div className="relative items-center ml-2 md:ml-20 lg:ml-40  overflow-hidden md:w-1/2 rounded-2xl">
             <img
-              src="https://res.cloudinary.com/arifulislam/image/upload/v1709963344/Group_1_1_gyjgjo.png"
+              src="https://res.cloudinary.com/arifulislam/image/upload/v1710836269/Frame_1_yhdlf0.jpg"
               alt="Shoes"
-              className="md:w-full h-24 md:h-40 "
+              className="w-full h-24 md:h-40 "
             />
             <div className="absolute inset-0 flex justify-center text-black">
               <div className="absolute pl-2 pt-1 pr-20 md:pt-6 md:pl-6  w-full ">

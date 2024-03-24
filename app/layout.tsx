@@ -3,7 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/header";
 import Provider from "@/components/providers";
-// import Provider from "@/components/providers";
+import Footer from "@/components/footer/footer";
 
 const inter = Roboto({
   subsets: ["latin"],
@@ -25,12 +25,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <Provider>
           {" "}
-          <div className="min-h-screen flex flex-col">
+          <div>
             <Header />
             {children}
-            <div className="p-12 bg-black text-white font-bold text-center">
-              this is fotter section later i will impliment
-            </div>
+            <Footer />
           </div>
         </Provider>
       </body>

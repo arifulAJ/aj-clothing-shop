@@ -127,8 +127,7 @@ const Menu = () => {
                 )}{" "}
               </div>
               <div className="text-white font-normal text-xs">
-                {/* $ {items.reduce((a, c) => a + c.price * c.qty, 0)} */}$
-                <span>{itemsPrice - saving}</span>
+                $<span>{itemsPrice - saving}</span>
               </div>
             </div>
           </Link>
