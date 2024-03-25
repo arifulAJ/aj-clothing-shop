@@ -23,20 +23,21 @@
 import bcrypt from "bcryptjs";
 
 const data = {
-  users: [
-    {
-      name: "John",
-      email: "admin@example.com",
-      password: bcrypt.hashSync("123456"),
-      isAdmin: true,
-    },
-  ],
+  // users: [
+  //   {
+  //     name: "John",
+  //     email: "admin@example.com",
+  //     password: bcrypt.hashSync("123456"),
+  //     isAdmin: true,
+  //   },
+  // ],
 
   products: [
     {
       name: "litle girl red frog",
       slug: "litle-girl-red-frog",
       category: "Frog",
+      collectionProduct: "litel-girl",
       image:
         "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/little_girl_red_dres_wnehz1.jpg",
       price: 32,
@@ -56,6 +57,7 @@ const data = {
       name: "Full lenght scart",
       slug: "full-length-scart",
       category: "scart",
+      collectionProduct: "woman",
       image:
         "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/full_scart_rwdvto.jpg",
       price: 46,
@@ -76,6 +78,7 @@ const data = {
       name: "Logn scart  with white  color",
       slug: "logn-scart-with-white-color",
       category: "Scart",
+      collectionProduct: "woman",
       image:
         "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/log_scart_white_ljyak4.jpg",
       price: 16,
@@ -94,6 +97,7 @@ const data = {
       name: "Short scart ",
       slug: "short-scart",
       category: "Scart",
+      collectionProduct: "woman",
       image:
         "https://res.cloudinary.com/arifulislam/image/upload/v1710831459/sort_scart-min_ejp99x.jpg",
       price: 12,
@@ -111,6 +115,7 @@ const data = {
       name: "Long lehenga",
       slug: "long-lehenga",
       category: "lehenga",
+      collectionProduct: "woman",
       image:
         "https://res.cloudinary.com/arifulislam/image/upload/v1709708464/log_dres_iz4koz.jpg",
       price: 52,
@@ -131,6 +136,7 @@ const data = {
       name: "Shoulder Bag",
       slug: "Shoulder-Bag",
       category: "bags",
+      collectionProduct: "bag",
       image:
         "https://res.cloudinary.com/arifulislam/image/upload/v1710830727/sidebad-min_evyjwc.jpg",
       price: 250,
@@ -151,6 +157,7 @@ const data = {
       name: "Hand Bag by crocodile leather",
       slug: "Hand-Bag-crocodile",
       category: "bags",
+      collectionProduct: "bag",
       image:
         "https://res.cloudinary.com/arifulislam/image/upload/v1710830730/corcdail_bag-min_ezpdvr.jpg",
       price: 550,
@@ -171,6 +178,7 @@ const data = {
       name: "Small Hand Bag ",
       slug: "small-Hand-Bag",
       category: "bags",
+      collectionProduct: "bag",
       image:
         "https://res.cloudinary.com/arifulislam/image/upload/v1710830707/had_bag_arefd8.jpg",
       price: 450,
@@ -186,6 +194,27 @@ const data = {
 
       banner:
         "https://res.cloudinary.com/arifulislam/image/upload/v1710830707/had_bag_arefd8.jpg",
+    },
+    {
+      name: "wedding dress ",
+      slug: "wedding-dress",
+      category: "wedding",
+      collectionProduct: "wedding",
+      image:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1709797351/cloth-min-removebg-preview-min_trfjl1.png",
+      price: 450,
+      brand: "action jaction",
+      rating: 4.5,
+      numReviews: 8,
+      countInStock: 30,
+      description:
+        "This wedding dress epitomizes timeless elegance with its graceful silhouette and exquisite details. Crafted from luxurious ivory satin, the gown features a sweetheart neckline adorned with delicate lace appliqués that trail down the bodice, creating a romantic and feminine allure. The fitted bodice cinches at the waist, accentuating the bride's figure, before flowing into a voluminous A-line skirt that cascades into a sweeping train, adding a touch of grandeur to the ensemble.",
+      isFeatured: false,
+
+      color: ["white"],
+
+      banner:
+        "https://res.cloudinary.com/arifulislam/image/upload/v1709797351/cloth-min-removebg-preview-min_trfjl1.png",
     },
   ],
 };

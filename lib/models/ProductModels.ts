@@ -12,6 +12,7 @@ const productSchema = new mongoose.Schema(
     countInStock: { type: Number, required: true, default: 0 },
     description: { type: String, required: true },
     isFeatured: { type: Boolean, required: true, default: false },
+    collectionProduct: { type: String, required: true },
 
     discounts: { type: Number },
 
@@ -36,6 +37,7 @@ export type Product = {
   brand: string;
   description: string;
   isFeatured: true;
+  collectionProduct: string;
   discounts?: number;
 
   countInStock: number;

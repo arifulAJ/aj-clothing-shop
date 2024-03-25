@@ -23,9 +23,16 @@ const getBySlug = cache(async (slug: String) => {
   const products = await ProductModel.findOne({ slug }).lean();
   return products as Product;
 });
+const getByCollection = cache(async (collectionProduct: String) => {
+  await dbConnect();
+  const products = await ProductModel.find({ collectionProduct }).lean();
+  return products as Product[];
+});
+
 const ProductService = {
   getLatest,
   getFeatured,
   getBySlug,
+  getByCollection,
 };
 export default ProductService;

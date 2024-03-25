@@ -212,7 +212,7 @@ const Menu = () => {
               </Link>
             </li>
             <li>
-              <Link href="/service" onClick={closeMenu}>
+              <Link href="/collection" onClick={closeMenu}>
                 <p className="text-white flex align-middle ">
                   {" "}
                   <span className="px-2">
@@ -236,7 +236,7 @@ const Menu = () => {
                       />
                     </svg>
                   </span>
-                  Service
+                  Collection
                 </p>
               </Link>
             </li>

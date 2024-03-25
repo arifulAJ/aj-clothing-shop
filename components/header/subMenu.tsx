@@ -51,8 +51,8 @@ const SubMenu = () => {
         <Link href="/">
           <p className="mr-4 hover:underline ">Home</p>
         </Link>
-        <Link href="/services ">
-          <p className="mr-4 hover:underline">Service</p>
+        <Link href="/collection ">
+          <p className="mr-4 hover:underline">Collection</p>
         </Link>
         <Link href="/depertment">
           <p className="mr-4 hover:underline">Depertment</p>

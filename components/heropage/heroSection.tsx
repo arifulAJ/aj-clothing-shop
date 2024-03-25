@@ -33,7 +33,7 @@ function HeroSection() {
         <div className="relative">
           {" "}
           <div className=" relative overflow-hidden rounded-2xl">
-            <Link href={"/cart"} className="">
+            <Link href={"/collection/wedding"} className="">
               <img
                 src="https://res.cloudinary.com/arifulislam/image/upload/v1709797351/cloth-min-removebg-preview-min_trfjl1.png"
                 alt="Shoes"
@@ -63,7 +63,7 @@ function HeroSection() {
           <div className="carousel-item">
             {" "}
             <div className="relative overflow-hidden rounded-2xl">
-              <Link href={"/cart"} className="relative  ">
+              <Link href={"/collection/suming"} className="relative  ">
                 <img
                   src="https://res.cloudinary.com/arifulislam/image/upload/v1709795099/swimm_shop-min_ojb7nf.jpg"
                   alt="Shoes"
@@ -85,7 +85,7 @@ function HeroSection() {
           <div className="carousel-item">
             {" "}
             <div className="relative overflow-hidden rounded-2xl">
-              <Link href={"/cart"} className="relative  ">
+              <Link href={"/collection/facewash"} className="relative  ">
                 <img
                   src="https://res.cloudinary.com/arifulislam/image/upload/v1709795098/skincare_hero-min_siodmt.jpg"
                   alt="Shoes"
@@ -93,7 +93,7 @@ function HeroSection() {
                 />{" "}
               </Link>
               <div className="absolute text-black bottom-0 text-center  w-full">
-                <h2 className="text-xl font-bold">Suming costume</h2>
+                <h2 className="text-xl font-bold">Face whash</h2>
                 <Link
                   title="shop now"
                   className="font-normal underline"
@@ -107,7 +107,7 @@ function HeroSection() {
           <div className="carousel-item">
             {" "}
             <div className="relative overflow-hidden rounded-2xl">
-              <Link href={"/cart"} className="relative  ">
+              <Link href={"/collection/eayglass"} className="relative  ">
                 <img
                   src="https://res.cloudinary.com/arifulislam/image/upload/v1709811346/pexels-antony-trivet-9980356_oypwtc.jpg"
                   alt="Shoes"
@@ -115,7 +115,7 @@ function HeroSection() {
                 />{" "}
               </Link>
               <div className="absolute text-black bottom-0 text-center  w-full">
-                <h2 className="text-xl font-bold">Suming costume</h2>
+                <h2 className="text-xl font-bold">Proctet your Eay</h2>
                 <Link
                   title="shop now"
                   className="font-normal underline"
