@@ -28,7 +28,7 @@ const getByCollection = cache(async (collectionProduct: String) => {
   const products = await ProductModel.find({ collectionProduct }).lean();
   return products as Product[];
 });
-const getByCatagory = cache(async (category: String) => {
+const getByCatagory = cache(async (category: String | undefined) => {
   await dbConnect();
   const products = await ProductModel.find({ category }).lean();
   return products as Product[];
