@@ -28,11 +28,17 @@ const getByCollection = cache(async (collectionProduct: String) => {
   const products = await ProductModel.find({ collectionProduct }).lean();
   return products as Product[];
 });
+const getByCatagory = cache(async (category: String) => {
+  await dbConnect();
+  const products = await ProductModel.find({ category }).lean();
+  return products as Product[];
+});
 
 const ProductService = {
   getLatest,
   getFeatured,
   getBySlug,
   getByCollection,
+  getByCatagory,
 };
 export default ProductService;

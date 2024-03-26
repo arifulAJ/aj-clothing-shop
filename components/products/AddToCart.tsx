@@ -17,12 +17,20 @@ export default function AddToCart({ item }: { item: OrderItem }) {
 
   return existItem ? (
     <div className="card-actions justify-center align-middle ">
-      <button className="btn" type="button" onClick={() => decreses(existItem)}>
+      <button
+        className="btn text-white bg-orange-500 border-none md:text-2xl font-bold hover:text-white"
+        type="button"
+        onClick={() => decreses(existItem)}
+      >
         {" "}
         -{" "}
       </button>
       <span className="px-2"> {existItem.qty}</span>
-      <button className="btn" type="button" onClick={() => increase(existItem)}>
+      <button
+        className="btn text-white bg-orange-500 border-none md:text-2xl font-bold hover:text-white"
+        type="button"
+        onClick={() => increase(existItem)}
+      >
         +
       </button>
     </div>
@@ -30,7 +38,7 @@ export default function AddToCart({ item }: { item: OrderItem }) {
     <div>
       <div className="card-actions justify-center ">
         <button
-          className="btn btn-primary w-full"
+          className="btn  text-white bg-orange-500 border-none md:text-xl font-bold hover:text-white w-full"
           type="button"
           onClick={addToCarthandeler}
         >
