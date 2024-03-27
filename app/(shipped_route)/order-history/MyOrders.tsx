@@ -25,10 +25,10 @@ export default function MyOrders() {
     return <div>Loading...</div>;
   }
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto bg-gray-100 p-2 text-black h-screen">
       <table className="table">
         <thead>
-          <tr>
+          <tr className="text-black font-bold text-sm">
             <th>ID</th>
             <th>DATE</th>
             <th>TOTAL</th>

@@ -45,7 +45,7 @@ const Form = () => {
     required?: boolean;
     pattern?: ValidationRule<RegExp>;
   }) => (
-    <div className="mb-2">
+    <div className="mb-2 text-black">
       <label className="label" htmlFor={id}>
         {name}
       </label>
@@ -56,7 +56,7 @@ const Form = () => {
           required: required && `${name} is required`,
           pattern,
         })}
-        className="input input-bordered w-full max-w-sm"
+        className="input bg-gray-100   w-full max-w-sm "
       />
       {errors[id]?.message && (
         <div className="text-error">{errors[id]?.message}</div>
@@ -67,9 +67,9 @@ const Form = () => {
   return (
     <div>
       <CheckoutSteps current={1} />
-      <div className="max-w-sm mx-auto card  bg-red-500 my-4">
-        <div className="card-body">
-          <h1 className="card-title">Shipping Address</h1>
+      <div className="max-w-sm mx-auto py-10 px-4   my-4">
+        <div className="">
+          <h1 className="text-black font-bold text-xl">Shipping Address</h1>
           <form onSubmit={handleSubmit(formSubmit)}>
             <FormInput name="Full Name" id="fullName" required />
             <FormInput name="Address" id="address" required />
@@ -80,7 +80,7 @@ const Form = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="btn btn-primary w-full"
+                className="btn bg-orange-700 text-white hover:bg-black border-none w-full"
               >
                 {isSubmitting && (
                   <span className="loading loading-spinner"></span>

@@ -7,7 +7,7 @@ import Link from "next/link";
 import SignOutButton from "../from/signOutButton";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import SubMenu from "./subMenu";
+
 import { useSavings } from "@/lib/services/discountSaving";
 
 const Menu = () => {
@@ -341,7 +341,7 @@ const Menu = () => {
                     </p>
                     <ul
                       tabIndex={0}
-                      className="menu dropdown-content bg-slate-400 z-1 translate-x-24  p-2 shadow rounded-box w-52 "
+                      className="menu dropdown-content text-black bg-gray-100 z-1 translate-x-24  p-2 shadow rounded-box w-52 "
                     >
                       <li onClick={handleClick}>
                         <Link href="/order-history">Order history </Link>
@@ -444,7 +444,7 @@ const Menu = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="menu dropdown-content bg-slate-400 z-1  p-2 shadow rounded-box w-52 "
+                  className="menu dropdown-content bg-gray-100 text-black z-40  p-2 shadow rounded-box w-52 "
                 >
                   <li onClick={handleClick}>
                     <Link href="/order-history">Order history </Link>

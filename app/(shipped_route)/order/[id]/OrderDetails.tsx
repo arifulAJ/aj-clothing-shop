@@ -43,6 +43,7 @@ export default function OrderDetails({
   const {
     paymentMethod,
     shippingAddress,
+    shippingPrice,
     items,
     itemsPrice,
     taxPrice,
@@ -63,12 +64,12 @@ export default function OrderDetails({
   const sum = save.reduce((total: number, num: number) => total + num, 0);
 
   return (
-    <div>
-      <h1 className="text-2xl py-4 ">Order {orderId}</h1>
-      <div className="grid md:grid-cols-4 md:gap-4 my-4">
-        <div className="overflow-x-auto md:col-span-3">
-          <div className="card bg-orange-200 ">
-            <div className="card-body">
+    <div className="px-2 md:px-20">
+      <h1 className="text-xl py-4 ">Your Order id {orderId}</h1>
+      <div className="grid md:grid-cols-4 md:gap-4 my-4 py-12">
+        <div className="overflow-x-auto md:col-span-2 lg:col-span-3">
+          <div className=" grid lg:grid-cols-2  gap-4 justify-between">
+            <div className="capitalize text-black bg-gray-100 rounded-xl p-4">
               <h2 className="card-title"> Shipping Address</h2>
               <p>{shippingAddress.fullName}</p>
               <p>
@@ -81,26 +82,26 @@ export default function OrderDetails({
                 <div className="text-error">Not Delivered</div>
               )}
             </div>
-          </div>
-          <div className="card bg-orange-200 mt-4">
-            <div className="card-body">
-              <h2 className="card-title"> Payment Method</h2>
-              <p>{paymentMethod}</p>
-              {paidAt ? (
-                <div className="text-success">Paid at {paidAt}</div>
-              ) : (
-                <div className="text-error">Not Paid</div>
-              )}
+            <div className="card bg-gray-100  text-black">
+              <div className="card-body">
+                <h2 className="card-title"> Payment Method</h2>
+                <p>{paymentMethod}</p>
+                {paidAt ? (
+                  <div className="text-success">Paid at {paidAt}</div>
+                ) : (
+                  <div className="text-error">Not Paid</div>
+                )}
+              </div>
             </div>
           </div>
 
-          <div className="card bg-orange-200 mt-4">
+          <div className="card text-black bg-gray-100 mt-4">
             <div className="card-body">
               <h2 className="card-title"> Items</h2>
               <table className="table">
                 <thead>
                   {" "}
-                  <tr>
+                  <tr className="text-black text-sm font-bold">
                     <th>Item</th>
                     <th>Quantity</th>
                     <th>Price</th>
@@ -144,23 +145,30 @@ export default function OrderDetails({
                 </tbody>
               </table>
               <div>
-                <Link className="btn" href={"/"}>
+                <Link
+                  className="btn bg-orange-700 text-white border-none "
+                  href={"/"}
+                >
                   Edit
                 </Link>
               </div>
             </div>
           </div>
         </div>
-        <div>
-          <div className="card bg-orange-200  p-4">
+        <div className="md:col-span-2 lg:col-span-1 text-black">
+          <div className="card bg-gray-100  p-4">
             <div className="cadr-body">
               <h2 className="card-title">Order Sumary</h2>
               <ul className="space-y-3">
                 <li>
                   <div className="flex justify-between">
-                    <div>Itmes</div>
+                    <div>Sub Total</div>
                     <div>${itemsPrice - sum}</div>
                   </div>
+                  <p className="flex justify-between text-gray-600 font-light">
+                    <span>saving</span>
+                    <span className="line-through">${sum}</span>
+                  </p>
                 </li>
                 <li>
                   <div className="flex justify-between">
@@ -171,12 +179,19 @@ export default function OrderDetails({
                 <li>
                   <div className="flex justify-between">
                     <div>Shipping</div>
-                    {/* <div>${shippingPrice}</div> */}
+                    <div>${shippingPrice} </div>
                   </div>
+                  <p>
+                    {shippingPrice === 0 ? (
+                      <span className="font-light text-sm">Free Shipping</span>
+                    ) : (
+                      <></>
+                    )}
+                  </p>
                 </li>
                 <li>
                   <div className="flex justify-between">
-                    <div>Total</div>
+                    <div>Grand Total</div>
                     <div>${totalPrice - sum}</div>
                   </div>
                 </li>

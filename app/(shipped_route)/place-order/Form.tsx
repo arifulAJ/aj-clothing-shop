@@ -68,44 +68,47 @@ const Form = () => {
     }
   }, [paymentMethod, router]);
   return (
-    <div className="px-32">
+    <div className="px-2 md:px-20">
       <CheckoutSteps current={3} />
-      <div className="grid md:grid-cols-4 md:gap-4 my-4">
-        <div className="overflow-x-auto md:col-span-3">
-          <div className="card bg-orange-200 ">
-            <div className="card-body">
-              <h2 className="card-title"> Shipping Address</h2>
+      <div className="grid md:grid-cols-4 md:gap-4 my-4 py-12">
+        <div className="overflow-x-auto md:col-span-2 lg:col-span-3">
+          <div className=" grid lg:grid-cols-2  gap-4 justify-between">
+            <div className="capitalize text-black bg-gray-100 rounded-xl p-4">
+              <h2 className="text-xl font-bold pb-4"> Shipping Address</h2>
               <p>{shippingAddress.fullName}</p>
-              <p>
+              <p className="py-4">
                 {shippingAddress.address}, {shippingAddress.city}{" "}
                 {shippingAddress.postalCode}, {shippingAddress.country}{" "}
               </p>
               <div>
-                <Link className="btn bg-emerald-300" href={"/shipping"}>
+                <Link
+                  className="btn bg-orange-700 text-white border-none"
+                  href={"/shipping"}
+                >
                   Edit
                 </Link>
               </div>
             </div>
-          </div>
-          <div className="card bg-orange-200 mt-4">
-            <div className="card-body">
-              <h2 className="card-title"> Payment Method</h2>
-              <p>{paymentMethod}</p>
-              <div>
-                <Link className="btn" href={"/payment"}>
-                  Edit
-                </Link>
-              </div>
+
+            <div className="text-black bg-gray-100  rounded-xl p-4">
+              <h2 className="text-xl font-bold"> Payment Method</h2>
+              <p className="py-4">{paymentMethod}</p>
+              <Link
+                className="btn bg-orange-700 text-white border-none "
+                href={"/payment"}
+              >
+                Edit
+              </Link>
             </div>
           </div>
 
-          <div className="card bg-orange-200 mt-4">
+          <div className="card text-black bg-gray-100 mt-4">
             <div className="card-body">
               <h2 className="card-title"> Items</h2>
               <table className="table">
                 <thead>
                   {" "}
-                  <tr>
+                  <tr className="text-black text-sm font-bold">
                     <th>Item</th>
                     <th>Quantity</th>
                     <th>Price</th>
@@ -148,21 +151,24 @@ const Form = () => {
                 </tbody>
               </table>
               <div>
-                <Link className="btn" href={"/"}>
+                <Link
+                  className="btn bg-orange-700 text-white border-none "
+                  href={"/"}
+                >
                   Edit
                 </Link>
               </div>
             </div>
           </div>
         </div>
-        <div>
-          <div className="card bg-orange-200  p-4">
+        <div className="md:col-span-2 lg:col-span-1">
+          <div className="card bg-gray-100  text-black my-4 md:my-0  p-4">
             <div className="cadr-body">
-              <h2 className="card-title">Order Sumary</h2>
+              <h2 className="card-title text-xl pb-2">Order Sumary</h2>
               <ul className="space-y-3">
                 <li>
                   <div className="flex justify-between">
-                    <div>Itmes</div>
+                    <div>Sub Total</div>
                     <div>${itemsPrice - savign}</div>
                   </div>
                 </li>
@@ -177,17 +183,24 @@ const Form = () => {
                     <div>Shipping</div>
                     <div>${shippingPrice} </div>
                   </div>
+                  <p>
+                    {shippingPrice === 0 ? (
+                      <span className="font-light">Free Shipping</span>
+                    ) : (
+                      <></>
+                    )}
+                  </p>
                 </li>
                 <li>
                   <div className="flex justify-between">
-                    <div>Total</div>
+                    <div> Grand Total</div>
                     <div>${totalPrice - savign}</div>
                   </div>
                 </li>
                 <li>
                   <button
                     type="button"
-                    className="btn btn-primary w-full"
+                    className="btn bg-orange-700 text-white hover:bg-black border-none w-full"
                     onClick={() => handleSubmit()}
                   >
                     {" "}

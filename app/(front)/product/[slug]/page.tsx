@@ -34,7 +34,7 @@ export default async function ProductDetails({
 
   return (
     <div className=" px-2 md:px-20 py-8">
-      <button className="my-2 btn bg-orange-400 text-black border-none hover:text-white capitalize">
+      <button className="my-2 btn bg-orange-700 text-black border-none hover:text-white capitalize">
         <Link href={"/"}> back to products</Link>
       </button>
 
@@ -45,7 +45,7 @@ export default async function ProductDetails({
             alt={product.name}
             width={640}
             height={640}
-            className=" "
+            className=" rounded-xl "
           ></Image>
         </div>
 
@@ -72,7 +72,7 @@ export default async function ProductDetails({
               {product.countInStock > 0 ? "In Stock" : "Unavilable"}
             </span>
           </div>
-          <hr style={{ padding: "0.40px" }} className=" my-6 bg-orange-600" />
+          <hr style={{ padding: "0.40px" }} className=" my-6 bg-orange-700" />
           {product.countInStock !== 0 && (
             <AddToCart
               item={{
@@ -83,7 +83,7 @@ export default async function ProductDetails({
               }}
             />
           )}{" "}
-          <hr style={{ padding: "0.40px" }} className=" my-6 bg-orange-600" />
+          <hr style={{ padding: "0.40px" }} className=" my-6 bg-orange-700" />
           <p className="text-black py-4">
             CATEGORY:{" "}
             <span className="text-gray-400 hover:text-orange-400">
