@@ -29,6 +29,7 @@ function Responsive({ item }: { item: Product[] }) {
 
     slidesToScroll: 4,
     initialSlide: 0,
+    arrows: false,
 
     responsive: [
       {

@@ -27,7 +27,7 @@ function HeroSection() {
     };
   }, []);
   return (
-    <div className="px-1 md:px-4 lg:px-24 py-4 md:py-8 bg-gray-100">
+    <div className="px1  md:px-4 lg:px-24 py-4 md:py-8 bg-gray-100">
       <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 gap-4  overflow-y-hidden  py-2 pb-6">
         {/* left item of hero */}
         <div className="relative grid sm:grid-cols-2 md:grid-cols-1 sm:gap-4 md:gap-0">
@@ -76,7 +76,7 @@ function HeroSection() {
 
         {/* middel item of hero */}
         <div
-          className=" h-60 w-full md:h-96 md:col-span-2  carousel carousel-end md:carousel-vertical rounded-box"
+          className=" h-60 w-full md:h-96 md:col-span-2 mx-2 sm:mx-0  carousel carousel-end md:carousel-vertical rounded-box"
           ref={carouselRef}
         >
           {" "}
