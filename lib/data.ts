@@ -201,7 +201,7 @@ const data = {
       category: "wedding",
       collectionProduct: "wedding",
       image:
-        "https://res.cloudinary.com/arifulislam/image/upload/v1709797351/cloth-min-removebg-preview-min_trfjl1.png",
+        "https://res.cloudinary.com/arifulislam/image/upload/v1711595388/cloth-min-removebg-preview-min_ebqycg.png",
       price: 450,
       brand: "action jaction",
       rating: 4.5,
@@ -214,7 +214,7 @@ const data = {
       color: ["white"],
 
       banner:
-        "https://res.cloudinary.com/arifulislam/image/upload/v1709797351/cloth-min-removebg-preview-min_trfjl1.png",
+        "https://res.cloudinary.com/arifulislam/image/upload/v1711595388/cloth-min-removebg-preview-min_ebqycg.png",
     },
   ],
 };

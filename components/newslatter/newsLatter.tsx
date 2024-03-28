@@ -28,7 +28,7 @@ const NewsletterSignup = () => {
       <p className="py-2">Sign up for our newsletter.</p>
       <form onSubmit={handleSubmit}>
         <input
-          className="bg-white px-2 md:px-8 py-2 text-black"
+          className="bg-white w-24 sm:w-1/2 px-2 md:px-8 py-2 text-black"
           type="email"
           placeholder="Your email address"
           value={email}

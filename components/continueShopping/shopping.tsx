@@ -9,7 +9,7 @@ const ContinueShopping = async () => {
       <h1 className="text-black font-semibold text-2xl py-8">
         Continue your shopping
       </h1>
-      <div className="grid md:grid-cols-4 gap-4">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {latestProducts.map((item) =>
           item.discounts ? (
             <></>

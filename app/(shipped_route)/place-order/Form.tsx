@@ -70,13 +70,16 @@ const Form = () => {
   return (
     <div className="px-2 md:px-20">
       <CheckoutSteps current={3} />
-      <div className="grid md:grid-cols-4 md:gap-4 my-4 py-12">
+      <div className="grid md:grid-cols-4 md:gap-4 my-4 py-4 md:py-12">
         <div className="overflow-x-auto md:col-span-2 lg:col-span-3">
           <div className=" grid lg:grid-cols-2  gap-4 justify-between">
             <div className="capitalize text-black bg-gray-100 rounded-xl p-4">
-              <h2 className="text-xl font-bold pb-4"> Shipping Address</h2>
+              <h2 className="md:text-xl font-bold md:pb-4">
+                {" "}
+                Shipping Address
+              </h2>
               <p>{shippingAddress.fullName}</p>
-              <p className="py-4">
+              <p className="py-1 md:py-4">
                 {shippingAddress.address}, {shippingAddress.city}{" "}
                 {shippingAddress.postalCode}, {shippingAddress.country}{" "}
               </p>
@@ -91,7 +94,7 @@ const Form = () => {
             </div>
 
             <div className="text-black bg-gray-100  rounded-xl p-4">
-              <h2 className="text-xl font-bold"> Payment Method</h2>
+              <h2 className="md:text-xl font-bold"> Payment Method</h2>
               <p className="py-4">{paymentMethod}</p>
               <Link
                 className="btn bg-orange-700 text-white border-none "
@@ -102,9 +105,9 @@ const Form = () => {
             </div>
           </div>
 
-          <div className="card text-black bg-gray-100 mt-4">
-            <div className="card-body">
-              <h2 className="card-title"> Items</h2>
+          <div className=" text-black rounded p-1 md:p-6 bg-gray-100 mt-4">
+            <div className="">
+              <h2 className="md:text-2xl"> Products</h2>
               <table className="table">
                 <thead>
                   {" "}
@@ -125,14 +128,15 @@ const Form = () => {
                           <Image
                             src={item.image}
                             alt={item.name}
-                            width={50}
-                            height={50}
+                            width={200}
+                            height={200}
+                            title={item.name}
                           />
-                          <span className="px-2">
+                          <p className="px-2 hidden md:block">
                             {item.name}
                             {item.color}
                             {item.size}
-                          </span>
+                          </p>
                         </Link>
                       </td>
                       <td>
@@ -150,6 +154,7 @@ const Form = () => {
                   ))}
                 </tbody>
               </table>
+
               <div>
                 <Link
                   className="btn bg-orange-700 text-white border-none "
@@ -164,7 +169,7 @@ const Form = () => {
         <div className="md:col-span-2 lg:col-span-1">
           <div className="card bg-gray-100  text-black my-4 md:my-0  p-4">
             <div className="cadr-body">
-              <h2 className="card-title text-xl pb-2">Order Sumary</h2>
+              <h2 className="card-title md:text-xl pb-2">Order Sumary</h2>
               <ul className="space-y-3">
                 <li>
                   <div className="flex justify-between">

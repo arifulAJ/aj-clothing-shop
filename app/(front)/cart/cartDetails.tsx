@@ -26,16 +26,23 @@ export default function CartDeatils() {
   if (!mounted) return <></>;
   return (
     <div className=" mx-2 md:px-20">
-      <h1 className="py-4 md:py-10 md:text-3xl text-orange-700 font-bold ">
+      <h1 className="py-4 md:hidden block md:py-10 md:text-3xl text-orange-700 font-bold ">
         {" "}
         Cart
       </h1>
+      <div>
+        <img
+          className="md:block hidden  w-full md:h-60 lg:h-72 "
+          src="https://res.cloudinary.com/arifulislam/image/upload/v1711603477/Screenshot_2024-03-28_112317_lon29h.png"
+          alt="cart"
+        />
+      </div>
       {items.length === 0 ? (
         <div className="py-10 text-3xl text-orange-700 font-bold ">
           Cart is empty, <Link href={"/"}>Go shopping</Link>
         </div>
       ) : (
-        <div className="grid md:grid-cols-3 md:gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-5">
           <div className="overflow-x-auto md:col-span-2">
             <table className="table ">
               <thead>
@@ -49,13 +56,13 @@ export default function CartDeatils() {
                 {items.map((item) => (
                   <tr key={item.slug}>
                     <td>
-                      <div className="flex  ">
+                      <div className="flex justify-between bg-gray-100 p-1 sm:p-0 rounded sm:bg-white md:justify-start  ">
                         <Link href={`/product/${item.slug}`}>
                           <Image
                             src={item.image}
                             alt={item.name}
-                            width={100}
-                            height={100}
+                            width={150}
+                            height={1500}
                           />
                         </Link>
                         <div className="pl-2 md:pl-6">
@@ -145,7 +152,8 @@ export default function CartDeatils() {
                         ${" "}
                         {item.discounts === undefined
                           ? item.price * item.qty
-                          : item.qty * item.price - item.price * item.discounts}
+                          : item.qty * item.price -
+                            item.qty * item.price * item.discounts}
                       </div>
                       <div className="py-4">
                         {item.discounts === undefined ? (
@@ -163,11 +171,13 @@ export default function CartDeatils() {
             </table>
           </div>
           <div className="p-4">
-            <p className="uppercase text-black items-end  ">cart totals</p>
+            <p className="uppercase rounded text-white bg-black p-2 items-end  ">
+              cart totals
+            </p>
             <hr />
             <ul className="py-4">
               <li>
-                <div className="pb-3 text-xl ">
+                <div className="pb-3 md:text-xl ">
                   <div className="flex justify-between font-light text-black pb-3 capitalize">
                     <p>subtotal:</p>
                     <p>${itemsPrice - saving}</p>
@@ -195,14 +205,14 @@ export default function CartDeatils() {
                     <span>shipping</span> <span>${shippingPrice}.00</span>
                     {/* {dis===undefined?itemsPrice:itemsPrice - (items.map(x=>x.price * (1 - x.discounts) * x.qty))} */}
                   </p>
-                  <p className="font-light text-sm capitalize pt-2 text-black">
+                  <p className="font-light  capitalize pt-2 text-black">
                     {shippingPrice === 0 ? "free shipping" : ""}
                   </p>
-                  <p className="font-light text-sm capitalize text-black py-4">
+                  <p className="font-light  capitalize text-black py-4">
                     {shippingAddress.address}, {shippingAddress.city},
                     {shippingAddress.country}
                   </p>
-                  <p className="font-light text-sm capitalize py-2 text-black">
+                  <p className="font-light  capitalize py-2 text-black">
                     {shippingPrice === 0 ? (
                       <div>
                         <p>free shipping</p> <p>${shippingPrice}.00</p>
@@ -222,7 +232,7 @@ export default function CartDeatils() {
               <li>
                 <button
                   onClick={() => router.push("/shipping")}
-                  className="btn bg-orange-700 hover:bg-black border-none text-white font-bold text-xl
+                  className="btn bg-orange-700 hover:bg-black border-none text-white font-bold md:text-xl
                     w-full"
                 >
                   {" "}
