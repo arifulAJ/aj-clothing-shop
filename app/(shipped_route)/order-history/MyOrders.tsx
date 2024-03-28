@@ -29,9 +29,9 @@ export default function MyOrders() {
       {orders.length === 0 ? (
         <div>
           <div>
-            <p className="text-center md:text-2xl  p-4">
-              You don't have any orders yet! Start shopping now and your order
-              history will appear here
+            <p className="text-center md:text-2xl ">
+              You don&apos;t have any orders yet! Start shopping now and your
+              order history will appear here
             </p>
             <img
               className="md:block hidden  w-full  "
