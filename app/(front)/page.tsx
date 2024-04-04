@@ -4,6 +4,7 @@ import { Metadata } from "next";
 
 import FlashDeal from "@/components/flashDeal/flashDeal";
 import ContinueShopping from "@/components/continueShopping/shopping";
+import WhyChoose from "@/components/whyChooes/whyChoose";
 
 export const metadata: Metadata = {
   title: process.env.NEXT_PUBLIC_APP_NAME || "aj super shop",
@@ -24,6 +25,7 @@ export default function Home() {
 
       <FlashDeal />
       <ContinueShopping />
+      <WhyChoose />
       {/* <FeatureProduct /> */}
 
       {/* rest of the fetur and product itmes */}

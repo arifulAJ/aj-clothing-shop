@@ -1,6 +1,7 @@
 "use client";
 import useCartService from "@/lib/hooks/useCartStore";
 import { useSavings } from "@/lib/services/discountSaving";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -17,7 +18,7 @@ export default function CartDeatils() {
     shippingAddress,
   } = useCartService();
   const [mounted, setMounted] = useState(false);
-
+  console.log(items);
   const saving = useSavings(items);
 
   useEffect(() => {
@@ -140,9 +141,9 @@ export default function CartDeatils() {
                               )}
                             </div>
                           </div>
-                          <p className="underline pt-2 text-black font-light">
+                          <button className="underline pt-2 text-black font-light">
                             Remove Item
-                          </p>
+                          </button>
                         </div>
                       </div>
                     </td>

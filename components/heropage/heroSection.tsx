@@ -91,10 +91,10 @@ function HeroSection() {
                 />{" "}
               </Link>
               <div className="absolute text-black bottom-0 text-center  w-full">
-                <h2 className="md:text-xl font-bold">Suming costume</h2>
+                <h2 className="md:text-xl font-light">Suming costume</h2>
                 <Link
                   title="shop now"
-                  className="font-normal underline"
+                  className="font-light underline"
                   href={"weading"}
                 >
                   shop now
@@ -112,11 +112,11 @@ function HeroSection() {
                   className="w-full h-60 md:h-96 object-cover transition duration-300 ease-in-out"
                 />{" "}
               </Link>
-              <div className="absolute text-black bottom-0 text-center  w-full">
-                <h2 className="md:text-xl font-bold">Face whash</h2>
+              <div className="absolute text-white bottom-0 text-center  w-full">
+                <h2 className="md:text-xl font-light">Face whash</h2>
                 <Link
                   title="shop now"
-                  className="font-normal underline"
+                  className="font-light underline"
                   href={"weading"}
                 >
                   shop now
@@ -135,10 +135,10 @@ function HeroSection() {
                 />{" "}
               </Link>
               <div className="absolute text-black bottom-0 text-center w-full">
-                <h2 className="md:text-xl font-bold">Proctet your Eay</h2>
+                <h2 className="md:text-xl font-light">Proctet your Eay</h2>
                 <Link
                   title="shop now"
-                  className="font-normal underline"
+                  className="font-light underline"
                   href={"weading"}
                 >
                   shop now
@@ -158,7 +158,7 @@ function HeroSection() {
               />{" "}
             </Link>
 
-            <div className=" absolute bottom-0 text-center text-black w-full">
+            <div className=" absolute bottom-0 text-center text-white w-full">
               <h2 className="md:text-xl font-light">Game PS5 </h2>
               <Link
                 title="shop now"
@@ -178,7 +178,7 @@ function HeroSection() {
               />{" "}
             </Link>
 
-            <div className=" absolute bottom-0 text-center text-black w-full">
+            <div className=" absolute bottom-0 text-center text-white w-full">
               <h2 className="md:text-xl font-light">smart watch </h2>
               <Link
                 title="shop now"

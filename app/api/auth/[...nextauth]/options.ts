@@ -50,7 +50,6 @@ export const authOptions: AuthOptions = {
           _id: user._id,
           email: user.email,
           name: user.name,
-          isAdmin: user.isAdmin,
         };
       }
       if (trigger === "update" && session) {

@@ -19,9 +19,9 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
       enum: ["admin", "user"],
-      default: "admin",
+      default: "user",
     },
-    isAdmin: { type: Schema.Types.Boolean, required: true, default: false },
+
     image: {
       type: String,
       required: true,
@@ -38,3 +38,12 @@ const userSchema = new mongoose.Schema(
 const UserModel = mongoose.models?.User || mongoose.model("User", userSchema);
 
 export default UserModel;
+
+export type users = {
+  _id?: string;
+  name: string;
+  email: string;
+  password: string;
+  role: string;
+  image: string;
+};

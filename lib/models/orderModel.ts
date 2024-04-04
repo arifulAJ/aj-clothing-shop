@@ -75,6 +75,7 @@ export type Order = {
 
 export type OrderItem = {
   name: string;
+  _id: string;
   slug: string;
   qty: number;
   image: string;

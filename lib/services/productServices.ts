@@ -33,6 +33,19 @@ const getByCatagory = cache(async (category: String | undefined) => {
   const products = await ProductModel.find({ category }).lean();
   return products as Product[];
 });
+const removeProductById = cache(async (productId: string) => {
+  try {
+    await dbConnect();
+    const deletedProduct = await ProductModel.findByIdAndDelete(productId);
+    console.log(deletedProduct, "delete the product");
+    if (!deletedProduct) {
+      throw new Error("Product not found");
+    }
+    return;
+  } catch (error: any) {
+    throw new Error(`Error removing product: ${error.message}`);
+  }
+});
 
 const ProductService = {
   getLatest,
@@ -40,5 +53,6 @@ const ProductService = {
   getBySlug,
   getByCollection,
   getByCatagory,
+  removeProductById,
 };
 export default ProductService;

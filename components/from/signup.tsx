@@ -24,7 +24,7 @@ export default function SignUpUI() {
       .then((res) => {
         setLoading(false);
         const respons = res.data;
-        console.log(respons, "regist");
+
         if (respons?.status == 200) {
           router.push(`/signin?message=${respons.message}`);
         } else if (respons?.status == 400) {
