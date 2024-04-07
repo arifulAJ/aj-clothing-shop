@@ -1,6 +1,5 @@
 "use client";
 
-import MyOrders from "@/app/(shipped_route)/order-history/MyOrders";
 import SignOutButton from "@/components/from/signOutButton";
 import UserPaymentHistory from "@/components/users/userPaymentHistory";
 import UsersOrder from "@/components/users/usersOrder";
@@ -8,7 +7,7 @@ import UsersOrder from "@/components/users/usersOrder";
 import axios from "axios";
 import Link from "next/link";
 
-import React, { ChangeEvent, useEffect, useRef, useState } from "react";
+import React, { ChangeEvent, useRef, useState } from "react";
 
 const ProfileData = (users: any) => {
   const user = users.users;
@@ -38,14 +37,13 @@ const ProfileData = (users: any) => {
       const formData = new FormData();
       formData.append("image", image);
 
-      const response = await axios.post("/api/imageUplode", formData, {
+      const response = await axios.patch("/api/imageUplode", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
 
       const data = await response.data;
-      console.log(data);
 
       if (data) {
         alert("Upload Successfully!");
