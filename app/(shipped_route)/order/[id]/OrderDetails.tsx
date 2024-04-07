@@ -65,7 +65,6 @@ export default function OrderDetails({
 
   return (
     <div className="px-2 md:px-20">
-      <h1 className="text-xl py-4 ">Your Order id {orderId}</h1>
       <div className="grid md:grid-cols-4 md:gap-4 my-4 py-12">
         <div className="overflow-x-auto md:col-span-2 lg:col-span-3">
           <div className=" grid lg:grid-cols-2  gap-4 justify-between">

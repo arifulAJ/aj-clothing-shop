@@ -17,10 +17,8 @@ const ProfilePage = async () => {
   const users = await userServices.getUserById(userId);
 
   return (
-    <div className="px-2 md:px-20 py-12">
-      <div className="">
-        <ProfileData users={users} />
-      </div>
+    <div>
+      <ProfileData users={users} />
     </div>
   );
 };

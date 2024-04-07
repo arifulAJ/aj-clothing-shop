@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-const UsersOrder = () => {
+const UserPaymentHistory = () => {
   const router = useRouter();
   const { data: orders, error } = useAxios(`/api/orders/mine`);
 
@@ -46,8 +46,9 @@ const UsersOrder = () => {
               <th>ORDER ID</th>
               <th>DATE</th>
               <th>TOTAL</th>
-              <th>QUANTITY</th>
-              <th>PRODUCT ID</th>
+              <th>PAID</th>
+              <th>DELIVERED</th>
+              <th>PAYMENT METHOD</th>
               <th>ACTION</th>
             </tr>
           </thead>
@@ -57,17 +58,8 @@ const UsersOrder = () => {
                 <td>{order._id}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
                 <td>${order.totalPrice}</td>
+
                 <td>
-                  {order.items.map((item) => (
-                    <p key={item._id}>{item.qty}</p>
-                  ))}
-                </td>
-                <td>
-                  {order.items.map((item) => (
-                    <p key={item._id}>{item._id}</p>
-                  ))}
-                </td>
-                {/* <td>
                   {order.isPaid && order.paidAt
                     ? `${order.paidAt.substring(0, 10)}`
                     : "not paid"}
@@ -76,7 +68,8 @@ const UsersOrder = () => {
                   {order.isDelivered && order.deliveredAt
                     ? `${order.deliveredAt.substring(0, 10)}`
                     : "not delivered"}
-                </td> */}
+                </td>
+                <td>{order.paymentMethod}</td>
                 <td>
                   <Link href={`/order/${order._id}`} passHref>
                     Details
@@ -91,4 +84,4 @@ const UsersOrder = () => {
   );
 };
 
-export default UsersOrder;
+export default UserPaymentHistory;

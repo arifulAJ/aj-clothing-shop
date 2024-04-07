@@ -199,7 +199,7 @@ const Form = () => {
                 <li>
                   <div className="flex justify-between">
                     <div> Grand Total</div>
-                    <div>${totalPrice - savign}</div>
+                    <div>${(totalPrice - savign).toFixed(2)}</div>
                   </div>
                 </li>
                 <li>
