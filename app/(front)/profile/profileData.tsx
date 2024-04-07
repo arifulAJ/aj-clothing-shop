@@ -38,13 +38,14 @@ const ProfileData = (users: any) => {
       const formData = new FormData();
       formData.append("image", image);
 
-      const response = await axios.patch("/api/imageUplode", formData, {
+      const response = await axios.post("/api/imageUplode", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
 
       const data = await response.data;
+      console.log(data);
 
       if (data) {
         alert("Upload Successfully!");
@@ -168,7 +169,7 @@ const ProfileData = (users: any) => {
                   <button
                     style={{ transform: "translate(10%, -100%)" }}
                     type="submit"
-                    className="text-white border-none btn bg-orange-700 "
+                    className="text-white border-none hover:bg-black btn bg-orange-700 "
                   >
                     Upload Image
                   </button>
