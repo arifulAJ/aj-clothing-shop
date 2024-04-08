@@ -15,10 +15,10 @@ const ProfilePage = async () => {
   const userId = user._id;
 
   const users = await userServices.getUserById(userId);
-
+  const plainUser = JSON.parse(JSON.stringify(users));
   return (
     <div>
-      <ProfileData users={users} />
+      <ProfileData users={plainUser} />
     </div>
   );
 };

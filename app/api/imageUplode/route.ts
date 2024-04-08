@@ -26,7 +26,7 @@ export const PATCH = async (req: NextRequest) => {
       { image: data.secure_url },
       { new: true }
     );
-    console.log(updatedUser);
+
     return NextResponse.json({ mag: updatedUser }, { status: 200 });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 400 });

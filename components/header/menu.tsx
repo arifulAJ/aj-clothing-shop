@@ -9,6 +9,7 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 
 import { useSavings } from "@/lib/services/discountSaving";
+import userServices from "@/lib/services/userServices";
 
 const Menu = () => {
   const { items, itemsPrice } = useCartService();
@@ -17,6 +18,7 @@ const Menu = () => {
   const menuRef = useRef<HTMLDivElement>(null);
   const { data: session } = useSession();
   const user = session?.user as { role: string }; // Use lowercase 'string'
+
   const isAdmins = user?.role === "admin";
 
   const saving = useSavings(items);
@@ -288,7 +290,7 @@ const Menu = () => {
               </Link>
             </li>
             <li>
-              <Link href="/contract" onClick={closeMenu}>
+              <Link href="/contact" onClick={closeMenu}>
                 <p className="text-white flex align-middle py-1">
                   <span className="px-2">
                     <svg
@@ -306,7 +308,7 @@ const Menu = () => {
                       />
                     </svg>
                   </span>
-                  Contract
+                  Contact
                 </p>
               </Link>
             </li>
@@ -346,44 +348,31 @@ const Menu = () => {
                       <li onClick={handleClick}>
                         <Link href="/order-history">Order history </Link>
                       </li>
-                      <li onClick={handleClick}>
-                        <Link href="/profile">Profile</Link>
-                      </li>
+                      {isAdmins ? (
+                        <div>
+                          {" "}
+                          <li>
+                            <Link href="/admin" onClick={closeMenu}>
+                              <p className="text-black flex align-middle py-1">
+                                {" "}
+                                Admin Dashbord
+                              </p>
+                            </Link>
+                          </li>
+                        </div>
+                      ) : (
+                        <li onClick={handleClick}>
+                          <Link href="/profile">User Dashboard</Link>
+                        </li>
+                      )}
+
                       <SignOutButton />
                     </ul>
                   </div>
                 </li>
               </div>
             )}
-            {isAdmins && (
-              <div>
-                {" "}
-                <li>
-                  <Link href="/cart" onClick={closeMenu}>
-                    <p className="text-white flex align-middle py-1">
-                      {" "}
-                      <span className="px-2">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-                          />
-                        </svg>
-                      </span>
-                      Dashbord
-                    </p>
-                  </Link>
-                </li>
-              </div>
-            )}
+
             <li>
               <Link href="/cart" onClick={closeMenu}>
                 <p className="text-white flex align-middle py-1">
@@ -435,6 +424,7 @@ const Menu = () => {
                       d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
                     />
                   </svg>
+
                   <div className="flex flex-col ">
                     <p className="font-extralight">
                       Hi, {session.user.name?.substring(0, 6)}
@@ -449,9 +439,40 @@ const Menu = () => {
                   <li onClick={handleClick}>
                     <Link href="/order-history">Order history </Link>
                   </li>
-                  <li onClick={handleClick}>
-                    <Link href="/profile">Profile</Link>
-                  </li>
+                  {isAdmins ? (
+                    <div>
+                      {" "}
+                      <li>
+                        <Link href="/admin" onClick={closeMenu}>
+                          <p className="text-black flex align-middle py-1">
+                            {" "}
+                            {/* <span className="px-2">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke="currentColor"
+                                className="w-6 h-6"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                                />
+                              </svg>
+                            </span> */}
+                            Admin Dashbord
+                          </p>
+                        </Link>
+                      </li>
+                    </div>
+                  ) : (
+                    <li onClick={handleClick}>
+                      <Link href="/profile">User Dashboard</Link>
+                    </li>
+                  )}
+
                   <SignOutButton />
                 </ul>
               </div>

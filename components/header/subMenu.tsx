@@ -60,8 +60,8 @@ const SubMenu = () => {
         <Link href="/blog">
           <p className="mr-4 hover:underline">Blog</p>
         </Link>
-        <Link href="/contract">
-          <p className="hover:underline">Contract</p>
+        <Link href="/contact">
+          <p className="hover:underline">Contact</p>
         </Link>
       </div>
     </div>

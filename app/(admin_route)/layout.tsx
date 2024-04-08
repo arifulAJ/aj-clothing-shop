@@ -29,7 +29,7 @@ interface Props {
 export default async function PrivateLayout({ children }: Props) {
   const session = await getServerSession(authOptions);
   const user = session?.user as { role: string }; // Use lowercase 'string'
-  const isAdmins = user?.role === "user";
+  const isAdmins = user?.role === "admin";
 
   if (!isAdmins) {
     redirect("/cart"); // Redirect if not an admin

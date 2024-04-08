@@ -35,7 +35,13 @@ const ProfileData = (users: any) => {
         return alert("pleace click on image and provide  a profile picture");
       }
       const formData = new FormData();
-      formData.append("image", image);
+      if (image && image instanceof File) {
+        if (image.size > 600000) {
+          alert("Your file is too big. Maximum file size is 8000 KB.");
+          return;
+        }
+        formData.append("image", image);
+      }
 
       const response = await axios.patch("/api/imageUplode", formData, {
         headers: {
@@ -65,10 +71,7 @@ const ProfileData = (users: any) => {
     <div>
       <div className="px-2 md:px-20 md:py-12 ">
         <div className="">
-          <div className=" text-center pb-2 md:hidden ">
-            <p className="text-black">
-              Pleace click the user Dashbord for the more imformation
-            </p>
+          <div className=" text-center mt-4 pb-2 md:hidden ">
             <label
               htmlFor="my-drawer-2"
               className="p-2 rounded-lg bg-orange-700 text-white border-none  drawer-button "
@@ -129,9 +132,9 @@ const ProfileData = (users: any) => {
                     onChange={handelOnChange}
                     style={{ transform: "translate(0%, -50%)" }}
                   >
-                    <div style={{ position: "relative" }}>
+                    <div className="" style={{ position: "relative" }}>
                       <img
-                        className="w-36 h-36 sm:w-44 sm:h-44 rounded-full cursor-pointer relative"
+                        className="w-36 h-36 sm:w-44 sm:h-44 rounded-full cursor-pointer relative bg-gray-50 border-gray-300 border-4"
                         src={user.image}
                         alt=""
                         onClick={handleClick}
